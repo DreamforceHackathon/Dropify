@@ -8,7 +8,9 @@ $(document).ready(function() {
       zoomControl: false,
       scaleControl: false,
       scrollwheel: false,
-      disableDoubleClickZoom: true
+      disableDoubleClickZoom: true,
+      mapTypeControl: false,
+      draggable:false
     };
     var map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
