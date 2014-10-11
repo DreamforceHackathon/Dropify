@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    new_message = Message.new(content: params[:content], latitude: params[:lat], longitude: params[:long])
+    new_message = Message.new(content: params[:content], latitude: params[:latitude], longitude: params[:longitude])
 
     if new_message.save
       render json: new_message.to_json
