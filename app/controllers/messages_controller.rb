@@ -47,9 +47,4 @@ class MessagesController < ApplicationController
     @message = Message.new
     render :partial => 'new_message'
   end
-
-  def create
-    current_user.messages.create(content: params[:content])
-    render nothing: true
-  end
 end
