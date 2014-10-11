@@ -23,3 +23,14 @@ group :development do
   gem 'rails_db_info'
   gem 'binding_of_caller'
 end
+
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'database_cleaner'
+end
