@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
   def index
+    # all_messages = Message.all
+    render json: Message.all.to_json
   end
 
   def new
