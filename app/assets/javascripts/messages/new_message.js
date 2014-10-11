@@ -8,7 +8,6 @@ $(document).ready(function() {
       })
       .done( function(data) {
         $('body').prepend(data)
-        console.log("success")
       })
       .fail(function(){
         console.log("fail")
