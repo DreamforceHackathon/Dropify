@@ -1,5 +1,5 @@
 var Dropify = {};
 
-$(document).ready(function() {
-
-});
+Dropify.App = function() {
+	var map = new Dropify.Map("#map-canvas");
+}
