@@ -15,16 +15,31 @@ class MessagesController < ApplicationController
   end
 
   def show
-    message = Message.find(params[:message_id])
-    
-  end
-
-  def edit
+    message = Message.find(params[:id])
+    if message
+      render json: message.to_json
+    else
+      render json: {errors: message.errors}.to_json
+    end
   end
 
   def update
+    message = Message.find(params[:id])
+    #assuming params
+    if message.update_attributes(params[:message])
+      render json: message.to_json
+    else
+    #can render different messages
+      render json: {errors: message.errors}.to_json
+    end
   end
 
   def destroy
+    message = Message.find(params[:id])
+    if message
+      message.destroy
+    else
+      render json: {errors: "Message does not exist"}
+    end
   end
 end
