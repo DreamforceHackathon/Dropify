@@ -4,9 +4,6 @@ class MessagesController < ApplicationController
     render json: Message.all.to_json
   end
 
-  def new
-  end
-
   def create
     new_message = Message.new(content: params[:content], latitude: params[:lat], longitude: params[:long])
 
