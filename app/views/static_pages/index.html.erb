@@ -4,8 +4,11 @@
       <h2>Dropify</h2>
     </div>
     <div class='col-sm-1 col-sm-offset-10'>
-    <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
     </div>
+  </div>
+  <div>
+    <%= button_to "drop message", new_message_path, id: 'drop_message_button', :method => :get %>
   </div>
   <div id="map-canvas">
   </div>
