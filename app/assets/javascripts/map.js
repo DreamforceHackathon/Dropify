@@ -12,10 +12,12 @@ $(document).ready(function() {
       mapTypeControl: false,
       draggable:false
     };
-    var map = new google.maps.Map(document.getElementById('map-canvas'),
+    map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
+  }
 
-    // Try HTML5 geolocation
+  // Try HTML5 geolocation
+  function findGeoLocation() {
       if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           var pos = new google.maps.LatLng(position.coords.latitude,
@@ -27,22 +29,22 @@ $(document).ready(function() {
             content: 'Cool! I found you.'
           });
 
-          map.setCenter(pos);
-        }, function() {
-          handleNoGeolocation(true);
-        });
+            map.setCenter(pos);
+          }, function() {
+            handleNoGeolocation(true);
+          });
       } else {
         // Browser doesn't support Geolocation
         handleNoGeolocation(false);
       }
-    }
+  }
 
-    function handleNoGeolocation(errorFlag) {
-      if (errorFlag) {
-        var content = 'Error: The Geolocation service failed.';
-      } else {
-        var content = 'Error: Your browser doesn\'t support geolocation.';
-      }
+  function handleNoGeolocation(errorFlag) {
+    if (errorFlag) {
+      var content = 'Error: The Geolocation service failed.';
+    } else {
+      var content = 'Error: Your browser doesn\'t support geolocation.';
+    }
   }
 
   var tblock = function (e) {
@@ -55,4 +57,10 @@ return false;
 
   document.body.addEventListener("touchmove", tblock, true);
   google.maps.event.addDomListener(window, 'load', initialize);
+
+  // Initial Geolocation call upon page load
+  findGeoLocation()
+
+  // Finds your geolocation every 30 seconds
+  setInterval(findGeoLocation, 30000)
 });
