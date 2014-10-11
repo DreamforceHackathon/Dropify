@@ -23,3 +23,5 @@ group :development do
   gem 'rails_db_info'
   gem 'binding_of_caller'
 end
+
+gem 'faker'
