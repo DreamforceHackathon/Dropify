@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20141011195449) do
   end
 
   create_table "messages", force: true do |t|
-    t.text     "content"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.text     "content",    null: false
+    t.float    "latitude",   null: false
+    t.float    "longitude",  null: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
