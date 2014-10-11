@@ -17,15 +17,18 @@ ActiveRecord::Schema.define(version: 20141011195449) do
   enable_extension "plpgsql"
 
   create_table "comments", force: true do |t|
-    t.text    "content"
-    t.integer "user_id"
-    t.integer "message_id"
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "message_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "messages", force: true do |t|
-    t.text     "content"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.text     "content",    null: false
+    t.float    "latitude",   null: false
+    t.float    "longitude",  null: false
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,7 +52,12 @@ ActiveRecord::Schema.define(version: 20141011195449) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "votes", force: true do |t|
-    t.integer "user_id"
+    t.integer  "value"
+    t.integer  "voteable_id"
+    t.string   "voteable_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
