@@ -2,4 +2,4 @@ deployment:
   production:
     branch: master
     heroku:
-      appname: 
+      appname: dropify
