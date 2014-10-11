@@ -5,7 +5,7 @@ class CreateMessages < ActiveRecord::Migration
       t.float :latitude, null: false
       t.float :longitude, null: false
       t.belongs_to :user
-      
+
       t.timestamps
     end
   end
