@@ -8,7 +8,9 @@ $(document).ready(function() {
       zoomControl: false,
       scaleControl: false,
       scrollwheel: false,
-      disableDoubleClickZoom: true
+      disableDoubleClickZoom: true,
+      mapTypeControl: false,
+      draggable:false
     };
     var map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
@@ -42,5 +44,15 @@ $(document).ready(function() {
         var content = 'Error: Your browser doesn\'t support geolocation.';
       }
   }
+
+  var tblock = function (e) {
+    if (e.touches.length > 1) {
+      e.preventDefault()
+    }
+
+return false;
+}
+
+  document.body.addEventListener("touchmove", tblock, true);
   google.maps.event.addDomListener(window, 'load', initialize);
 });
