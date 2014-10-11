@@ -3,3 +3,6 @@ deployment:
     branch: master
     heroku:
       appname: dropify
+machine:
+  ruby:
+    version: 2.0.0-p481
