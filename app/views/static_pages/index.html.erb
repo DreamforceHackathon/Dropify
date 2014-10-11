@@ -1,4 +1,18 @@
-<h1>Dropify</h1>
-  <%= button_to "drop message", new_message_path, id: 'drop_message_button', :method => :get %>
+<% if user_signed_in? %>
+  <div class='row'>
+    <div class='col-sm-1'>
+      <h2>Dropify</h2>
+    </div>
+    <div class='col-sm-1 col-sm-offset-10'>
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+    </div>
+  </div>
+  <div>
+    <%= button_to "drop message", new_message_path, id: 'drop_message_button', :method => :get %>
+  </div>
   <div id="map-canvas">
-</div>
+  </div>
+<% else %>
+  <%= link_to 'Sign up', new_user_registration_path %>
+  <%= link_to 'Log in', new_user_session_path %>
+<% end %>
