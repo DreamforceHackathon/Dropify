@@ -11,17 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
-ActiveRecord::Schema.define(version: 0) do
-=======
 ActiveRecord::Schema.define(version: 20141011054955) do
->>>>>>> Stashed changes
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< Updated upstream
-=======
   create_table "messages", force: true do |t|
     t.text     "content"
     t.float    "latitude"
@@ -30,5 +24,4 @@ ActiveRecord::Schema.define(version: 20141011054955) do
     t.datetime "updated_at"
   end
 
->>>>>>> Stashed changes
 end
