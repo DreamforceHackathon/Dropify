@@ -63,5 +63,8 @@ Dropify.Map.prototype = {
     } else {
       var content = 'Error: Your browser doesn\'t support geolocation.';
     }
+  },
+  renderMessages: function(messages) {
+    console.log(messages)
   }
 };

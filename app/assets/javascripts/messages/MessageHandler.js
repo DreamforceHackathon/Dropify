@@ -1,4 +1,10 @@
-MessageHandler = {
+Dropify.MessageHandler = function(map) {
+  this.map = map;
+
+  this.getMessages()
+}
+
+Dropify.MessageHandler.prototype = {
   Message: function(args) {
     this.content = args.content;
     this.latitude = args.latitude;
@@ -16,12 +22,12 @@ MessageHandler = {
   getMessages: function() {
     $.ajax({
       url: '/messages',
-      type: 'GET'
+      type: 'GET',
+      context: this
     }).done(function(jsonOfMessages) {
-      console.log(jsonOfMessages)
+      this.map.renderMessages(jsonOfMessages)
     })
   }
 }
 
-jsonStubOfMessages = [{content: "Hello", latitude: 37, longitude: 122}, {content: "Yo", latitude: 40, longitude: 150}, {content: "Sup", latitude: 30, longitude: 120}]
-MessageHandler.getMessages()
+
