@@ -4,6 +4,8 @@ class CreateComments < ActiveRecord::Migration
       t.text :content, limit: 220
       t.belongs_to :user
       t.belongs_to :message
+
+      t.timestamps
     end
   end
 end
