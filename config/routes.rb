@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'messages#index'
-
   resources :messages
+  devise_for :users
+  root 'static_pages#index'
 
 end
