@@ -17,7 +17,7 @@ Dropify.AdForm.prototype = {
     $('#new_advert').slideUp();
 
     this.messageHandler.createAdvert(
-      this.getTitleText(), 
+      this.getTitleText(),
       this.getURLText(),
       this.getContentText(),
       this.getLatitudeText(),

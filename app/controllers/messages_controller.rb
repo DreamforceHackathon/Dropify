@@ -24,7 +24,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    new_message = current_user.messages.new(title: params[:title], url: params[:url], content: params[:content], latitude: params[:latitude], longitude: params[:longitude])
+    new_message = current_user.messages.new(title: params[:message][:title], url: params[:message][:url], content: params[:message][:content], latitude: params[:message][:latitude], longitude: params[:message][:longitude])
 
     if new_message.save
       session[:message_id] = new_message.id
