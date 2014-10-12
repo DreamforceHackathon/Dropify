@@ -17,19 +17,21 @@
 
   <script id="messageTpl" type="text/template">
     <div class="messageTemplate">
-      <h1>content: {{content}} </h1>
+      <div class ="message-image">
+        <img src="https://pbs.twimg.com/profile_images/426548205611139072/lWNFAlcZ.jpeg"></a>
+      </div>
+        <hr>
+        <p><span class="message-content">{{content}}</span></p><br>
+
+      <footer>
+        <%= button_to "Close DIS SHIT", "", :id => "message-close", :class => 'btn btn-danger' %>
+      </footer>    
     </div>
-    <%= button_to "Close", "", :id => "message-close" %>
-  </script>
+    </script>
 
   <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
 
 </body>
-
-
 </html>
-
-
-
 
 
