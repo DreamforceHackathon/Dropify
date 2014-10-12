@@ -46,7 +46,15 @@ Dropify.Map.prototype = {
 		}
 	},
 	renderMarkers: function(markers) {
-		console.log(messages)
+		for(var i = 0; i < markers.length; i++) {
+			renderMarker(markers[i]);
+		}
+	},
+	renderMarker: function(marker) {
+		new google.maps.Marker({
+			position: new google.maps.LatLng(marker.latitude, marker.longitude),
+			map: this.map
+		});
 	},
 	getLocation: function() {
 		return new Promise(function(success, error) {
