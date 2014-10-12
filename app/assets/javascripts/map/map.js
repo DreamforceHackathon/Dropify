@@ -65,6 +65,5 @@ Dropify.Map.prototype = {
     }
   },
   renderMessages: function(messages) {
-    console.log(messages)
   }
 };

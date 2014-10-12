@@ -20,13 +20,6 @@ Dropify.MessageHandler.prototype = {
   },
 
   getMessages: function() {
-    $.ajax({
-      url: '/messages',
-      type: 'GET',
-      context: this
-    }).done(function(jsonOfMessages) {
-      this.map.renderMessages(jsonOfMessages)
-    })
   }
 }
 
