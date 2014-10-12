@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  $('#new_message').hide()
-
   var bindCreateNewMessage = function() {
     $('body').on('click', '#drop_message_button', function(e){
       e.preventDefault()
