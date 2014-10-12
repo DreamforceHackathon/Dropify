@@ -36,7 +36,7 @@ Dropify.Map.prototype = {
 		setInterval(this.centerOnLocation.bind(this), interval);
 	},
 	centerOnLocation: function() {
-		this.getLocation().then(function(pos) { alert("found location"); this.map.setCenter(pos); }.bind(this));
+		this.getLocation().then(function(pos) { this.map.setCenter(pos); }.bind(this));
 	},
 	handleNoGeolocation: function(errorFlag) {
 		if (errorFlag) {
