@@ -6,8 +6,8 @@ Dropify.MessageForm = function(contentFieldSelector, submitSelector, cancelSelec
 
 Dropify.MessageForm.prototype = {
   bindEventListeners: function(submitSelector, cancelSelector) {
-    $(submitSelector).on("click", this.handleSubmitClick.bind(this));
-    $(cancelSelector).on("click", this.handleCancelClick.bind(this));
+    $('body').on("click", submitSelector, this.handleSubmitClick.bind(this));
+    $('body').on("click", cancelSelector, this.handleCancelClick.bind(this));
   },
   handleSubmitClick: function(evt) {
     evt.preventDefault();

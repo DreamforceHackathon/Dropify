@@ -30,6 +30,9 @@ $(document).ready(function() {
           $('#comment_cancel').slideUp()
           $('.active_comment_button').removeClass('active_comment_button')
           $('.message_comments').append(data)
+          var map = new Dropify.Map("#map-canvas")
+          messageHandler = new Dropify.MessageHandler(map)
+          messageHandler.getMessages()
         })
         .fail(function(){
           console.log("fail")
