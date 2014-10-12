@@ -3,13 +3,11 @@
     <div class="header col-xs-9">
       <h2>Dropify</h2>
     </div>
-  
       <ul class="nav navbar-nav">
         <li>
           <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
         </li>
       </ul>
-    </div>
 </nav>
 <div>
   <%= render :partial => 'messages/new_message', locals: {message: Message.new} %>
