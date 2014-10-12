@@ -1,6 +1,6 @@
 Dropify.Map = function(mapSelector) {
 	var mapOptions = {
-		center: { lat: 37.7806647, lng: -122.4066077},
+		center: { lat: 37, lng: -122},
 		zoom: 18,
 		disableDefaultUI: true,
 		panControl: false,
@@ -40,9 +40,9 @@ Dropify.Map.prototype = {
 	},
 	handleNoGeolocation: function(errorFlag) {
 		if (errorFlag) {
-			var content = 'Error: The Geolocation service failed.';
+			alert('Error: The Geolocation service failed.');
 		} else {
-			var content = 'Error: Your browser doesn\'t support geolocation.';
+			alert('Error: Your browser doesn\'t support geolocation.');
 		}
 	},
 	renderMarkers: function(markers) {
