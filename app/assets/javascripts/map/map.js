@@ -1,6 +1,6 @@
 Dropify.Map = function(mapSelector) {
 	var mapOptions = {
-		center: { lat: 37.7833, lng: -122.4167},
+		center: { lat: 37.7806647, lng: -122.4066077},
 		zoom: 18,
 		disableDefaultUI: true,
 		panControl: false,
@@ -47,7 +47,7 @@ Dropify.Map.prototype = {
 	},
 	renderMarkers: function(markers) {
 		for(var i = 0; i < markers.length; i++) {
-			renderMarker(markers[i]);
+			this.renderMarker(markers[i]);
 		}
 	},
 	renderMarker: function(marker) {

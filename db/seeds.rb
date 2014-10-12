@@ -1,3 +1,8 @@
+# User.delete_all
+Message.delete_all
+Comment.delete_all
+Vote.delete_all
+
 class UserSeeder
   def self.seed(number_of_users)
     number_of_users.times {
@@ -15,8 +20,8 @@ class MessageSeeder
       messages_per_user.times {
         user.messages.create(
           content: Faker::Lorem.sentence,
-          latitude: 37.7642095 + rand() / 1000,
-          longitude: -122.427245 + rand() / 1000
+          latitude: 37.7806647 + rand() / 100,
+          longitude: -122.4066077 + rand() / 100
           )}
     end
   end
@@ -47,7 +52,7 @@ end
 
 
 
-UserSeeder.seed(5)
-MessageSeeder.seed(5)
-CommentSeeder.seed(5)
-VotesSeeder.seed(10)
+# UserSeeder.seed(5)
+MessageSeeder.seed(10)
+# CommentSeeder.seed(5)
+# VotesSeeder.seed(10)
