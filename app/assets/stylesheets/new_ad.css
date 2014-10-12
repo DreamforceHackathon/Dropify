@@ -35,3 +35,7 @@
   background-color: #f7584c;
   float: left;
 }
+
+.stripe_form {
+  z-index: 9999;
+}
