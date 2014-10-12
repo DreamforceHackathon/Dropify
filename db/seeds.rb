@@ -7,6 +7,7 @@ class UserSeeder
   def self.seed(number_of_users)
     number_of_users.times {
       User.create(
+        username: Faker::Internet.user_name,
         email: Faker::Internet.email,
         password: 'password',
         password_confirmation: 'password'
