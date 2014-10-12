@@ -2,14 +2,17 @@ footer {
   text-align: center;
   position: fixed;
   height: 6em;
-  bottom: 0;
-  background-color: #42c483;
+  bottom: 10%;
+  background-color: #3d4c45;
   width: 100%;
   padding-top: 1.1em;
+
   .footer_icon {
     padding-right: 4%;
+    color: #f4f4f4;
   }
 }
 
-
-
+.active {
+  color: #0aa25a;
+}
