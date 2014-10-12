@@ -1,9 +1,7 @@
 Dropify.MessageHandler = function(map) {
   this.map = map;
-  new_message = {content: "Test: Creation", latitude: 37, longitude: 122}
   this.messages = []
   this.getMessages()
-  this.createSingleMessage(new_message)
 }
 
 Dropify.MessageHandler.prototype = {
