@@ -52,7 +52,7 @@ end
 
 
 
+
 UserSeeder.seed(5)
 MessageSeeder.seed(10)
-# CommentSeeder.seed(5)
-# VotesSeeder.seed(10)
+

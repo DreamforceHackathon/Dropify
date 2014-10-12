@@ -1,4 +1,11 @@
 Dropify.Map = function(mapSelector) {
+	var noPoi = [
+		{
+			featureType: "poi",
+			stylers: [ { visibility: "off" } ]   
+		}
+	];
+
 	var mapOptions = {
 		center: { lat: 37, lng: -122},
 		zoom: 18,
@@ -9,8 +16,12 @@ Dropify.Map = function(mapSelector) {
 		scrollwheel: false,
 		disableDoubleClickZoom: true,
 		mapTypeControl: false,
-		draggable:false
+		draggable:false,
+		streetViewControl: false,
+		styles: noPoi
 	};
+
+	this.markers = [];
 
 	this.init(mapSelector, mapOptions);
 }
@@ -23,6 +34,9 @@ Dropify.Map.prototype = {
 	},
 	blockTouchEvents: function() {
 		document.body.addEventListener("touchmove", this.blockTouchMove, true);
+		document.ontouchmove = function(e){ 
+			e.preventDefault(); 
+		}	
 	},
 	blockTouchMove: function(evt) {
 		if (evt.touches.length > 1) {
@@ -33,7 +47,7 @@ Dropify.Map.prototype = {
 	},
 	setupGeolocation: function(interval) {
 		this.centerOnLocation();
-		setInterval(this.centerOnLocation.bind(this), interval);
+		this.geolocationTimer = setInterval(this.centerOnLocation.bind(this), interval);
 	},
 	centerOnLocation: function() {
 		this.getLocation().then(function(pos) { this.map.setCenter(pos); }.bind(this));
@@ -50,12 +64,21 @@ Dropify.Map.prototype = {
 			this.renderMarker(markers[i]);
 		}
 	},
-	renderMarker: function(marker) {
-		new google.maps.Marker({
-			position: new google.maps.LatLng(marker.latitude, marker.longitude),
+	renderMarker: function(message) {
+		var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(message.latitude, message.longitude),
 			map: this.map
 		});
+		
+		var markerShit = new Dropify.MessageViewer(message)
+
+  	google.maps.event.addListener(marker, 'click', function() {
+  		var yolo = new Dropify.MessageViewer(message);
+  		yolo.showMessage();
+  	})
+		this.markers.push(marker);
 	},
+
 	getLocation: function() {
 		return new Promise(function(success, error) {
 			if(navigator.geolocation) {
@@ -71,5 +94,56 @@ Dropify.Map.prototype = {
 	      error(false);
 	    }
 	  });
+	},
+	setExploreMode: function() {
+		this.setMarkerVisibility(true);
+		this.lockMap();
+	},
+	setAdvertMode: function() {
+		this.setMarkerVisibility(false);
+		this.unlockMap();
+	},
+	setMarkerVisibility: function(visiblity) {
+		for(var i = 0; i < this.markers.length; i++) {
+			this.markers[i].setVisible(visiblity);
+		}
+	},
+	unlockMap: function() {
+		this.map.setOptions({
+			disableDefaultUI: false,
+			panControl: true,
+			zoomControl: true,
+			scaleControl: true,
+			scrollwheel: true,
+			disableDoubleClickZoom: false,
+			mapTypeControl: true,
+			draggable:true
+		});
+		clearInterval(this.geolocationTimer);
+		this.addAdvertClickListener();
+	},
+	lockMap: function() {
+		this.map.setOptions({
+			zoom: 18,
+			disableDefaultUI: true,
+			panControl: false,
+			zoomControl: false,
+			scaleControl: false,
+			scrollwheel: false,
+			disableDoubleClickZoom: true,
+			mapTypeControl: false,
+			draggable:false
+		});
+		this.setupGeolocation();
+		google.maps.event.removeListener(this.clickListener);
+		this.clickListener = null;
+	},
+	addAdvertClickListener: function() {
+		if(!this.clickListener) {
+			this.clickListener = google.maps.event.addListener(this.map, 'click', this.handleMapClick.bind(this));
+		}
+	},
+	handleMapClick: function(evt) {
+		console.log(evt.latLng);
 	}
 };

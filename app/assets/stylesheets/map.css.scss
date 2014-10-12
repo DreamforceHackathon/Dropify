@@ -1,5 +1,18 @@
+@font-face {
+  font-family: 'OpenSans-CondLight';
+  src: asset-url('OpenSans-CondLight.ttf');
+}
+
+h2 {
+  font-family: 'OpenSans-CondLight';
+}
+
 html, body, #map-canvas {
   height: 100%; margin: 0; padding: 0;
+}
+
+#map-canvas {
+  position: relative;
 }
 
 .btn-spacing {
@@ -11,7 +24,5 @@ html, body, #map-canvas {
   text-align: center;
 }
 
-@media (max-width: 767px) {
 
-}
 
