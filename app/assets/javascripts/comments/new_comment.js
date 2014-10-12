@@ -29,7 +29,7 @@ $(document).ready(function() {
           $('#comment_input').slideUp()
           $('#comment_cancel').slideUp()
           $('.active_comment_button').removeClass('active_comment_button')
-          $('.comment_info:last').after(data)
+          $('.message_comments').append(data)
         })
         .fail(function(){
           console.log("fail")

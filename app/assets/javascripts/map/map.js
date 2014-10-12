@@ -2,7 +2,7 @@ Dropify.Map = function(mapSelector) {
 	var noPoi = [
 		{
 			featureType: "poi",
-			stylers: [ { visibility: "off" } ]   
+			stylers: [ { visibility: "off" } ]
 		}
 	];
 
@@ -34,9 +34,9 @@ Dropify.Map.prototype = {
 	},
 	blockTouchEvents: function() {
 		document.body.addEventListener("touchmove", this.blockTouchMove, true);
-		document.ontouchmove = function(e){ 
-			e.preventDefault(); 
-		}	
+		document.ontouchmove = function(e){
+			e.preventDefault();
+		}
 	},
 	blockTouchMove: function(evt) {
 		if (evt.touches.length > 1) {
@@ -69,7 +69,7 @@ Dropify.Map.prototype = {
 			position: new google.maps.LatLng(message.latitude, message.longitude),
 			map: this.map
 		});
-		
+
   	google.maps.event.addListener(marker, 'click', function() {
   		var messageViewer = new Dropify.MessageViewer(message);
   		messageViewer.showMessage();
