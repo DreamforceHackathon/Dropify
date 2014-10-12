@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
     all_messages.each do |mess|
 
       mess_hash = {
+        id: mess.id,
         content: mess.content,
         latitude: mess.latitude,
         longitude: mess.longitude,

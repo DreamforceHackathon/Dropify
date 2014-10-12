@@ -1,4 +1,5 @@
 Dropify.Message = function(args) {
+  this.id = args.id
   this.title = args.title;
   this.url = args.url;
   this.content = args.content;
@@ -17,5 +18,5 @@ Dropify.Message = function(args) {
   }
 
   this.user = args.user
-  // console.log(args)
+  console.log(args)
 }
