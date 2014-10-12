@@ -25,4 +25,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Errno::ENOENT: No such file or directory @ rb_sysopen - /Users/jesson/Desktop/repository-11/app/assets/sass/index.scss:styleshets/index.css"; }
+}
