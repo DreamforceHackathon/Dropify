@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :messages
   resources :pictures
+  resources :comments
   devise_for :users
   root 'static_pages#index'
 

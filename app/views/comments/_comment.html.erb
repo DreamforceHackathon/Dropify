@@ -1,0 +1,6 @@
+<div class="comment_info">
+  <span class="comment_content"> <%= comment.content %> |</span>
+  <span class="comment_username"> <%= comment.user.username %> |</span>
+  <span class="comment_vote_count"> <%= comment.votes.sum(:value) %> </span>
+  <br>
+</div>
