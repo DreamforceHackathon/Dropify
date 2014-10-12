@@ -20,31 +20,29 @@
     <div class="messageTemplate">
       <p id="message_id">{{id}}</p>
 
+      {{#url}}
       <h1><a href="{{url}}">{{title}}</a></h1>
+      {{/url}}
+
+      {{^url}}
       {{#picturePath}}
-        <div class ="message-image">
-          <img src={{picturePath}}>
-        </div>
+      <div class ="message-image">
+        <img src={{picturePath}}>
+      </div>
       {{/picturePath}}
+      {{/url}}
 
-      {{#advert}}
-        <div class ="message-image">
-          <a href="{{url}}">{{url}}</a>
-        </div>
-      {{/advert}}
-
-        <p><span class="username">Posted by:  {{user.username}}</span></p>
-        <p><span class="vote_count">{{voteCount}}</span></p>
-        <p><span class="message-content">{{content}}</span></p><br>
+      <p><span class="message-content">{{content}}</span></p><br>
+      {{^url}}
+      <p><span class="username">Posted by:  {{user.username}}</span></p>
 
       <div class="message_comments">
         {{#comments}}
-          <div class="comment_info">
-            <span class="comment_content">{{comment.content}} |</span>
-            <span class="comment_username">{{username}} |</span>
-            <span class="comment_vote_count">{{comment_vote_count}}</span>
-            <br>
-          </div>
+        <div class="comment_info">
+          <span class="comment_content">{{comment.content}} |</span>
+          <span class="comment_username">{{username}}</span>
+          <br>
+        </div>
         {{/comments}}
       </div>
 
@@ -54,6 +52,7 @@
         <input type="submit" value="Comment" id="comment_submit">
         <button id="comment_cancel">Cancel</button>
       </div>
+      {{/url}}
 
       <div id="message_footer">
         <%= button_to "Close", "", :id => "message-close", :class => 'btn btn-danger' %>
