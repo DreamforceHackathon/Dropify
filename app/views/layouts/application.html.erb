@@ -20,6 +20,7 @@
     <div class="messageTemplate">
       <p id="message_id">{{id}}</p>
 
+      <h1><a href="{{url}}">{{title}}</a></h1>
       {{#picturePath}}
         <div class ="message-image">
           <img src={{picturePath}}>
@@ -54,9 +55,9 @@
         <button id="comment_cancel">Cancel</button>
       </div>
 
-      <footer>
-        <%= button_to "Close Message", "", :id => "message-close", :class => 'btn btn-danger' %>
-      </footer>
+      <div id="message_footer">
+        <%= button_to "Close", "", :id => "message-close", :class => 'btn btn-danger' %>
+      </div>
     </div>
   </script>
 

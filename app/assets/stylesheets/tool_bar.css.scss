@@ -1,18 +1,18 @@
 footer {
   text-align: center;
   position: fixed;
-  height: 6em;
+  height: 85px;
   bottom: 10%;
   background-color: #3d4c45;
   width: 100%;
   padding-top: 1.1em;
 
   .footer_icon {
-    padding-right: 4%;
+    padding-right: 10%;
     color: #f4f4f4;
   }
 }
 
-.active {
-  color: #0aa25a;
+.footer_icon.active {
+  color: #80FFC4;
 }
