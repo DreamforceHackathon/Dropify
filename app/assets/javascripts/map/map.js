@@ -1,4 +1,11 @@
 Dropify.Map = function(mapSelector) {
+	var noPoi = [
+		{
+			featureType: "poi",
+			stylers: [ { visibility: "off" } ]   
+		}
+	];
+
 	var mapOptions = {
 		center: { lat: 37, lng: -122},
 		zoom: 18,
@@ -10,7 +17,8 @@ Dropify.Map = function(mapSelector) {
 		disableDoubleClickZoom: true,
 		mapTypeControl: false,
 		draggable:false,
-    streetViewControl: false
+		streetViewControl: false,
+		styles: noPoi
 	};
 
 	this.markers = [];
