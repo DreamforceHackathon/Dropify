@@ -2,18 +2,67 @@
 <html>
 <head>
   <title>Dropify</title>
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <%= yield %>
+
+  <script id="messageTpl" type="text/template">
+    <div class="messageTemplate">
+      <p id="message_id">{{id}}</p>
+
+      {{#url}}
+        <h1><a href="{{url}}" target="_blank">{{title}}</a></h1>
+      {{/url}}
+
+      {{^url}}
+      {{#picturePath}}
+      <div class ="message-image">
+        <img src={{picturePath}}>
+      </div>
+      {{/picturePath}}
+      {{/url}}
+
+      <p><span class="message-content">{{content}}</span></p><br>
+      {{^url}}
+      <p><span class="username">Posted by:  {{user.username}}</span></p>
+
+      <div class="message_comments">
+        {{#comments}}
+        <div class="comment_info">
+          <span class="comment_content">{{comment.content}} |</span>
+          <span class="comment_username">{{username}}</span>
+          <br>
+        </div>
+        {{/comments}}
+      </div>
+
+      <div>
+        <input type="text_area" placeholder="Drop a comment!" id="comment_input">
+        <br>
+        <input type="submit" value="Comment" id="comment_submit">
+        <button id="comment_cancel">Cancel</button>
+      </div>
+      {{/url}}
+
+      <div id="message_footer">
+        <%= button_to "Close", "", :id => "message-close", :class => 'btn btn-danger' %>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
 
 </body>
-
 </html>
+
+

@@ -36,3 +36,4 @@ group :test do
   gem 'database_cleaner'
 end
 
+gem 'carrierwave_direct'

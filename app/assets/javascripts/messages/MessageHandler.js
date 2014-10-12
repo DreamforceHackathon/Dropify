@@ -13,8 +13,8 @@ Dropify.MessageHandler.prototype = {
 
   getMessages: function() {
     Dropify.API.getMessages().then(function(serverData) {
-      this.createMessages(serverData)
-      this.map.renderMarkers(this.messages)
+      this.createMessages(serverData);
+      this.map.renderMarkers(this.messages);
     }.bind(this));
   },
 
@@ -23,6 +23,10 @@ Dropify.MessageHandler.prototype = {
       var message = new Dropify.Message({content: content, latitude: location.k, longitude: location.B});
       Dropify.API.createMessage(message).then(this.handleCreateMessageResponse.bind(this));
     }.bind(this));
+  },
+
+  createAdvert: function(title, url, content, latitude, longitude) {
+    Dropify.API.createMessage({title: title, url: url, content: content, latitude: latitude, longitude: longitude, advert: true}).then(this.handleCreateMessageResponse.bind(this));
   },
 
   handleCreateMessageResponse: function(serverData) {

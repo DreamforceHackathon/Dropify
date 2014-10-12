@@ -7,6 +7,7 @@ class UserSeeder
   def self.seed(number_of_users)
     number_of_users.times {
       User.create(
+        username: Faker::Internet.user_name,
         email: Faker::Internet.email,
         password: 'password',
         password_confirmation: 'password'
@@ -32,7 +33,8 @@ class CommentSeeder
     Message.all.each do |message|
       comments_per_message.times {
         message.comments.create(
-          content: Faker::Lorem.sentence
+          content: Faker::Lorem.sentence,
+          user_id: rand(5) + 1
           )}
     end
   end
@@ -50,9 +52,8 @@ class VotesSeeder
   end
 end
 
-
-
 UserSeeder.seed(5)
 MessageSeeder.seed(10)
-# CommentSeeder.seed(5)
-# VotesSeeder.seed(10)
+CommentSeeder.seed(2)
+VotesSeeder.seed(2)
+

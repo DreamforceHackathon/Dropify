@@ -1,0 +1,82 @@
+Dropify.AdForm = function(titleFieldSelector, urlFieldSelector, contentFieldSelector, submitSelector, cancelSelector, messageHandler, map) {
+  this.map = map;
+  this.$titleField = $(titleFieldSelector);
+  this.$urlField = $(urlFieldSelector);
+  this.$contentField = $(contentFieldSelector);
+  this.messageHandler = messageHandler;
+  this.bindEventListeners(submitSelector, cancelSelector);
+
+  this.handler = StripeCheckout.configure({
+    key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+    image: 'assets/black.jpg',
+    token: function(token) {
+      var data = { token: token };
+      $.ajax({
+        url: "/charges",
+        type: "post",
+        data: data,
+        context: this
+      }).done(function(serverData) {
+        var advert = this.getAdvertMessage();
+        Dropify.API.createMessage(advert);
+
+        this.$titleField.val("");
+        this.$urlField.val("");
+        this.$contentField.val("");
+        this.map.renderMarker(advert);
+        this.map.setExploreMode();
+      })
+    }.bind(this)
+  });
+};
+
+Dropify.AdForm.prototype = {
+  bindEventListeners: function(submitSelector, cancelSelector) {
+    $(submitSelector).on("click", this.handleSubmitClick.bind(this));
+    $(cancelSelector).on("click", this.handleCancelClick.bind(this));
+  },
+  handleSubmitClick: function(evt) {
+    evt.preventDefault();
+    $('#new_advert').slideUp();
+
+    // Open Checkout with further options
+    this.handler.open({
+      name: 'Buy Advert',
+      description: 'Marker advert ($5.00)',
+      amount: 500
+    });
+
+  },
+  getAdvertMessage: function() {
+    var title = this.getTitleText();
+    var url = this.getURLText();
+    var content = this.getContentText();
+    var latitude = this.getLatitudeText();
+    var longitude = this.getLongitudeText();
+    return new Dropify.Message({title: title, url: url, content: content, latitude: latitude, longitude: longitude})
+  },
+  handleCancelClick: function(evt) {
+    evt.preventDefault();
+    $('#new_advert').slideUp();
+  },
+  getTitleText: function() {
+    return this.$titleField.val();
+  },
+  getURLText: function() {
+    return this.$urlField.val();
+  },
+  getContentText: function() {
+    return this.$contentField.val();
+  },
+  getLatitudeText: function() {
+    return $('#latitude').val();
+  },
+  getLongitudeText: function() {
+    return $('#longitude').val();
+  },
+  show: function(latitude, longitude) {
+    $('#new_advert').slideDown();
+    $('#longitude').val(longitude);
+    $('#latitude').val(latitude);
+  }
+};

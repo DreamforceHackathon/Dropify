@@ -1,0 +1,29 @@
+.user_profile {
+  text-align: center;
+  .user-prof-message-display {
+    width: 70%;
+    text-align: center;
+  }
+}
+.user-prof-img img{
+  height: 100%;
+  width: 100%;
+}
+.user-prof-message-display {
+  border: 2px black solid;
+  padding: 2%;
+}
+
+.back-to-map {
+  text-align: center;
+  position: fixed;
+  height: 85px;
+  bottom: 10%;
+  background-color: #3d4c45;
+  width: 100%;
+  padding-top: 1.1em;
+  a {
+  color: white;
+  }
+}
+

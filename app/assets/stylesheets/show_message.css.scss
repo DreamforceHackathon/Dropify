@@ -1,0 +1,52 @@
+#messageArea {
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  height: auto;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  border: 0px;
+  background: white;
+  text-align: center;
+}
+
+#message-close {
+  width: 100%;
+  font-size: 2em;
+  height: 4em;
+}
+
+.message-content {
+  font-size: 1.5em;
+}
+
+.message-image img {
+  max-height: 8em;
+}
+
+
+#comment_input {
+  display:none;
+  width: 100%;
+  text-align: center;
+}
+
+#comment_submit {
+  width: 100%;
+}
+
+#comment_cancel {
+  display: none;
+  width: 100%;
+}
+
+.active_comment_button {
+  background-color: #42c483;
+}
+
+#message_id {
+  display: none;
+}
+
+
