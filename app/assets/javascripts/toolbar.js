@@ -9,9 +9,13 @@ Dropify.Toolbar.prototype = {
   bindEventListeners: function() {
     this.$toolbar.on('click', '#map_button', this.handleMapButtonClick.bind(this));
     this.$toolbar.on('click', '#drop_message_button', this.handleDropMessageClick.bind(this));
+    this.$toolbar.on('click', '#user_profile_button', this.handleProfileClick)
     this.$toolbar.on('click', '#drop_advert_button', this.handleAdvertClick.bind(this));
   },
-
+  handleProfileClick: function(evt){
+    document.body.addEventListener("touchmove", this.blockTouchMove, false);
+    document.location.href='/user' 
+  },
   handleMapButtonClick: function(evt) {
     evt.preventDefault();
     this.map.setExploreMode();
