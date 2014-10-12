@@ -1,4 +1,5 @@
-Dropify.AdForm = function(titleFieldSelector, urlFieldSelector, contentFieldSelector, submitSelector, cancelSelector, messageHandler) {
+Dropify.AdForm = function(titleFieldSelector, urlFieldSelector, contentFieldSelector, submitSelector, cancelSelector, messageHandler, map) {
+  this.map = map;
   this.$titleField = $(titleFieldSelector);
   this.$urlField = $(urlFieldSelector);
   this.$contentField = $(contentFieldSelector);
@@ -25,10 +26,13 @@ Dropify.AdForm.prototype = {
     this.$titleField.val("");
     this.$urlField.val("");
     this.$contentField.val("");
+
+    this.map.setExploreMode();
   },
   handleCancelClick: function(evt) {
     evt.preventDefault();
     $('#new_advert').slideUp();
+    this.map.setExploreMode();
   },
   getTitleText: function() {
     return this.$titleField.val();
