@@ -9,8 +9,11 @@ Dropify.Map = function(mapSelector) {
 		scrollwheel: false,
 		disableDoubleClickZoom: true,
 		mapTypeControl: false,
-		draggable:false
+		draggable:false,
+    streetViewControl: false
 	};
+
+	this.markers = [];
 
 	this.init(mapSelector, mapOptions);
 }
@@ -24,7 +27,7 @@ Dropify.Map.prototype = {
 	blockTouchEvents: function() {
 		document.body.addEventListener("touchmove", this.blockTouchMove, true);
 		document.ontouchmove = function(e){ 
-    	e.preventDefault(); 
+			e.preventDefault(); 
 		}	
 	},
 	blockTouchMove: function(evt) {
@@ -36,7 +39,7 @@ Dropify.Map.prototype = {
 	},
 	setupGeolocation: function(interval) {
 		this.centerOnLocation();
-		setInterval(this.centerOnLocation.bind(this), interval);
+		this.geolocationTimer = setInterval(this.centerOnLocation.bind(this), interval);
 	},
 	centerOnLocation: function() {
 		this.getLocation().then(function(pos) { this.map.setCenter(pos); }.bind(this));
@@ -65,6 +68,7 @@ Dropify.Map.prototype = {
   		var yolo = new Dropify.MessageViewer(message);
   		yolo.showMessage();
   	})
+		this.markers.push(marker);
 	},
 
 	getLocation: function() {
@@ -82,5 +86,45 @@ Dropify.Map.prototype = {
 	      error(false);
 	    }
 	  });
+	},
+	setExploreMode: function() {
+		this.setMarkerVisibility(true);
+		this.lockMap();
+	},
+	setAdvertMode: function() {
+		this.setMarkerVisibility(false);
+		this.unlockMap();
+	},
+	setMarkerVisibility: function(visiblity) {
+		for(var i = 0; i < this.markers.length; i++) {
+			this.markers[i].setVisible(visiblity);
+		}
+	},
+	unlockMap: function() {
+		this.map.setOptions({
+			disableDefaultUI: false,
+			panControl: true,
+			zoomControl: true,
+			scaleControl: true,
+			scrollwheel: true,
+			disableDoubleClickZoom: false,
+			mapTypeControl: true,
+			draggable:true
+		});
+		clearInterval(this.geolocationTimer);
+	},
+	lockMap: function() {
+		this.map.setOptions({
+			zoom: 18,
+			disableDefaultUI: true,
+			panControl: false,
+			zoomControl: false,
+			scaleControl: false,
+			scrollwheel: false,
+			disableDoubleClickZoom: true,
+			mapTypeControl: false,
+			draggable:false
+		});
+		this.setupGeolocation();
 	}
 };
