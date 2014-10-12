@@ -8,7 +8,7 @@ Dropify.Toolbar = function(toolbarSelector, map) {
 Dropify.Toolbar.prototype = {
   bindEventListeners: function() {
     this.$toolbar.on('click', '#map_button', this.handleMapButtonClick.bind(this));
-    this.$toolbar.on('click', '#drop_message_button', this.handleDropMessageClick);
+    this.$toolbar.on('click', '#drop_message_button', this.handleDropMessageClick.bind(this));
     this.$toolbar.on('click', '#drop_advert_button', this.handleAdvertClick.bind(this));
   },
 
