@@ -1,4 +1,3 @@
-
 Dropify.Map = function(mapSelector) {
 	var mapOptions = {
 		center: { lat: 37, lng: -122},
@@ -86,11 +85,3 @@ Dropify.Map.prototype = {
 	  });
 	}
 };
-
-
-
-
-
-
-
-
