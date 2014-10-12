@@ -1,35 +1,55 @@
-<% if user_signed_in? %>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="header col-xs-9">
-      <h2>
-      <img src='images/black.jpg' height=45vw>
-          Dropify
-      </h2>
-  </div>
-  <ul class="nav navbar-nav">
-    <h2 class='navbar-right-align'><%= link_to 'Log out', destroy_user_session_path, method: :delete %></h2>
-  </ul>
-</nav>
-<div>
-  <%= render :partial => 'messages/new_message', locals: {message: Message.new} %>
-  <%= render :partial => 'messages/new_picture', locals: {picture: Picture.new} %>
-</div>
-<div>
-  <%= render :partial => 'adverts/new', locals: {message: Message.new} %>
-</div>
-<div id="messageArea" style="display:none"></div>
-<div id="map-canvas">
-</div>
+<header>
+    <div class="container">
+        <div class="logo row">
+            <img src="images/logo.png" width="205" height="70"/>
+        </div>
+    </div>
+</header>
+<section class="hero">
+    <div class="container"><br><br>
+        <div class="row">
+            <% if user_signed_in? %>
+                <div>
+                <%= render :partial => 'messages/new_message', locals: {message: Message.new} %>
+                <%= render :partial => 'messages/new_picture', locals: {picture: Picture.new} %>
+                        </div>
+                    <% end %>
+                        <div class="col-lg-6 col-md-6 col-sm-6 mac-left">
+                            <%= button_to 'Log in', new_user_session_path, method: :get, :class => 'btn btn-primary btn-center animated' %>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 mac-left">
+                            <%= button_to 'Sign up', new_user_registration_path, method: :get, :class => 'btn btn-primary btn-center animated' %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 mac-left">
+                            <img class="animated" src="images/dfy.png" width="553" height="529" />
+                            <br> 
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 mac-center"><br><br>
+                            <img class="animated" src="images/pinw.png" width="551" height="527" />
+                            <br> 
 
-<%= render partial: 'footer' %>
-<% else %>
-<div class="container">
-  <div class="row center-btn">
-    <div class="col-sm-4">
-      <%= button_to 'Sign up', new_user_registration_path, method: :get, :class => 'btn btn-primary btn-spacing' %>
-    </div>
-    <div class="col-sm-4">
-      <%= button_to 'Log in', new_user_session_path, method: :get, :class => 'btn btn-primary btn-spacing' %>
-    </div>
-  </div>
-<% end %>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div>
+                <%= render :partial => 'messages/new_message', locals: {message: Message.new} %>
+                <%= render :partial => 'messages/new_picture', locals: {picture: Picture.new} %>
+            </div>
+            <div>
+                <%= render :partial => 'adverts/new', locals: {message: Message.new} %>
+            </div>
+            <div id="messageArea" style="display:none"></div>
+            <div id="map-canvas">
+            </div>
+            <%= render partial: 'footer' %>
+
+            <% if user_signed_in? %> 
+                <footer>        <span class="footer_icon" id="map_button"><i class="fa fa-globe fa-4x"></i></span>
+                <span class="footer_icon" id="footer_photo"><i class="fa fa-camera fa-4x"></i></span>
+                <span class="footer_icon" id="drop_message_button"><i class="fa fa-comment fa-4x"></i></span>
+                <span class="footer_icon" id="footer_user_profile"><i class="fa fa-user fa-4x"></i></span>
+                <span class="footer_icon" id="drop_advert_button"><i class="fa fa-dollar fa-4x"></i></span></footer>
+        <% end %>
