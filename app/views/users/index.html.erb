@@ -3,6 +3,9 @@
 <% @user.messages.each do |message| %>
   <div class="user-prof-message-display container">
   <%= message.content %>
+  <% if Picture.find_by_message_id(message.id) %>
+  <span class="user-prof-img"><%= image_tag("#{Picture.find_by_message_id(message.id).picture_url}") %></span>
+  <% end %>
   </div><br>
 <% end %>
 </div>
