@@ -13,8 +13,8 @@ Dropify.MessageHandler.prototype = {
 
   getMessages: function() {
     Dropify.API.getMessages().then(function(serverData) {
-      this.createMessages(serverData)
-      this.map.renderMarkers(this.messages)
+      this.createMessages(serverData);
+      this.map.renderMarkers(this.messages);
     }.bind(this));
   },
 
