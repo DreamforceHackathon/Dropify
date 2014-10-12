@@ -16,6 +16,7 @@ Dropify.MessageForm.prototype = {
 
     this.messageHandler.createMessage(this.getContentText());
     this.$contentField.val("")
+    $('#new_picture').slideDown("slow")
   },
   handleCancelClick: function(evt) {
     evt.preventDefault();

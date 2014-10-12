@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
     new_message = Message.new(content: params[:content], latitude: params[:latitude], longitude: params[:longitude])
 
     if new_message.save
+      session[:message_id] = new_message.id
       render json: new_message
     else
       render json: {errors: new_message.errors}
