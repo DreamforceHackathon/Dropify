@@ -1,10 +1,9 @@
 #new_picture {
   display: none;
-  z-index: 100;
+  z-index: 101;
   position: absolute;
   width: 100%;
-  bottom: 0;
-  height: 50%;
+  bottom: 10%;
   padding:0;
   border: 0px;
 }

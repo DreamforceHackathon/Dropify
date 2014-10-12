@@ -1,5 +1,6 @@
-<%= form_for picture do |f| %>
-  <%= f.file_field :picture, :id => 'create_picture' %>
+<%= form_for picture, html: { multipart: true } do |f| %>
+  <%= f.file_field :picture %>
   <%= f.submit "drop picture", :id => 'create_picture_submit' %>
   <%= f.button "cancel", :id => 'create_picture_cancel' %>
 <% end %>
+

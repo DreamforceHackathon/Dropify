@@ -1,7 +1,8 @@
-<%= form_for message do |f| %>
+<%= form_for message, html: { multipart: true } do |f| %>
   <%= f.text_field :content, :id => 'create_message_input' %>
   <br>
   <%= f.submit "drop message", :id => 'create_message_submit' %>
   <br>
   <%= f.button "cancel", :id => 'create_message_cancel' %>
 <% end %>
+

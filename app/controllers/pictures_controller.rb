@@ -1,7 +1,18 @@
 class PicturesController < ApplicationController
   def create
-    p params[:file]
+    message = Message.find(session[:message_id])
+    picture = message.pictures.new(picture_params)
 
-    render nothing: true
+    if picture.save
+      session[:message_id] = nil
+      redirect_to root_path
+    else
+      render nothing: true
+    end
+  end
+
+  private
+  def picture_params
+    params.require(:picture).permit(:picture)
   end
 end

@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20141012040338) do
 
   create_table "pictures", force: true do |t|
     t.string  "picture"
-    t.integer "user_id"
+    t.integer "message_id"
   end
 
   create_table "users", force: true do |t|

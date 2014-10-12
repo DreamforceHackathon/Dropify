@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
     new_message = Message.new(content: params[:content], latitude: params[:latitude], longitude: params[:longitude])
 
     if new_message.save
+      session[:message_id] = new_message.id
       render json: new_message
     else
       render json: {errors: new_message.errors}
@@ -40,13 +41,6 @@ class MessagesController < ApplicationController
       message.destroy
     else
       render json: {errors: "Message does not exist"}
-    end
-  end
-
-  def upload
-    uploaded_io = params[:message][:picture]
-    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
-      file.write(uploaded_io.read)
     end
   end
 end
