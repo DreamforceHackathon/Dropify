@@ -23,6 +23,9 @@ Dropify.Map.prototype = {
 	},
 	blockTouchEvents: function() {
 		document.body.addEventListener("touchmove", this.blockTouchMove, true);
+		document.ontouchmove = function(e){ 
+    	e.preventDefault(); 
+		}	
 	},
 	blockTouchMove: function(evt) {
 		if (evt.touches.length > 1) {
