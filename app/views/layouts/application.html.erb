@@ -17,25 +17,35 @@
 
   <script id="messageTpl" type="text/template">
     <div class="messageTemplate">
+
       {{#picturePath}}
         <div class ="message-image">
           <img src={{picturePath}}>
         </div>
       {{/picturePath}}
-        <hr>
+
         <p><span class="username">Posted by:  {{user.username}}</span></p>
         <p><span class="vote_count">{{voteCount}}</span></p>
         <p><span class="message-content">{{content}}</span></p><br>
+
       <div class="message_comments">
         {{#comments}}
-          <span class="comment_content">{{comment.content}}</span>
-          <span class="comment_username">{{username}}</span>
+          <span class="comment_content">{{comment.content}} |</span>
+          <span class="comment_username">{{username}} |</span>
           <span class="comment_vote_count">{{comment_vote_count}}</span>
+          <br>
         {{/comments}}
       </div>
 
+      <div>
+        <input type="text_area" placeholder="Drop a comment!" id="comment_input">
+        <br>
+        <input type="submit" value="Comment" id="comment_submit">
+        <button id="comment_cancel">Cancel</button>
+      </div>
+
       <footer>
-        <%= button_to "Close DIS SHIT", "", :id => "message-close", :class => 'btn btn-danger' %>
+        <%= button_to "Close Message", "", :id => "message-close", :class => 'btn btn-danger' %>
       </footer>
     </div>
   </script>
