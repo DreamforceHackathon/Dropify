@@ -12,6 +12,7 @@
 </nav>
 <div>
   <%= render :partial => 'messages/new_message', locals: {message: Message.new} %>
+  <%= render :partial => 'messages/new_picture', locals: {picture: Picture.new} %>
 </div>
 <div id="messageArea" style="display:none"></div>
 <div id="map-canvas">
@@ -26,11 +27,12 @@
 <% else %>
 <div class="container">
   <div class="row center-btn">
-    <div class="col-sm-4">
       <%= button_to 'Sign up', new_user_registration_path, method: :get, :class => 'btn btn-primary btn-spacing' %>
-    </div>
-    <div class="col-sm-4">
       <%= button_to 'Log in', new_user_session_path, method: :get, :class => 'btn btn-primary btn-spacing' %>
-    </div>
   </div>
 <% end %>
+
+
+
+
+

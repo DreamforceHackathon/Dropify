@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
   <head>
     <title>Dropify</title>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
@@ -16,4 +17,38 @@
     <%= yield %>
     <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
   </body>
+=======
+<head>
+  <title>Dropify</title>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <%= yield %>
+
+  <script id="messageTpl" type="text/template">
+    <div class="messageTemplate">
+      <h1>content: {{content}} </h1>
+    </div>
+    <%= button_to "Close", "", :id => "message-close" %>
+  </script>
+
+  <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+
+</body>
+
+
+>>>>>>> b05898384b78b3c64ee4172abbadf7f179b63025
 </html>
+
+
+
+
+

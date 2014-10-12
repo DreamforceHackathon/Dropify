@@ -1,36 +1,43 @@
-#drop_message_button {
-
-}
-
 #new_message {
   display: none;
   z-index: 100;
   position: absolute;
   width: 100%;
   bottom: 0;
-  height: 50%;
-  padding:0;
+  height: 45%;
+  padding: 0;
   border: 0px;
 }
 
 #create_message_input {
   width: 100%;
-  height: 80%;
+  height: 60%;
   background: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  position: relative;
+  bottom: -.5em;
 }
 
 #create_message_submit {
-  width: 100%;
-  height: 10%;
+  width: 50%;
   border: 0px;
   margin: 0;
-  padding: 0;
+  padding: 5px;
+  background-color: #42c483;
+  float: right;
 }
 
 #create_message_cancel {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 10%;
+  width: 50%;
   border: 0px;
+  margin: 0;
+  padding: 5px;
+  background-color: #f7584c;
+  float: left;
+}
+
+.btn-default {
+  height: 4em;
+  font-size: 2em;
+  font-family: 'OpenSans-CondLight';
 }
