@@ -31,10 +31,23 @@
 
 #new_picture_div {
   background: rgba(0, 0, 0, 0.2);
-  width: 50%;
+  width: 40%;
   color: black;
   text-align: center;
   float: left;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid white;
+}
+
+#new_picture_submit {
+  background: rgba(0, 0, 0, 0.2);
+  width: 10%;
+  color: black;
+  text-align: center;
+  float: left;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 #new_picture_cancel {
@@ -43,6 +56,9 @@
   color: black;
   text-align: center;
   float:right;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
 }
 
 #new_pic_buttons {

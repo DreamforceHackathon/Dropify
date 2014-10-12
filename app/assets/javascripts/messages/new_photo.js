@@ -7,12 +7,19 @@ $(document).ready(function() {
     })
 
     $('body').on('click', '#new_picture_div', function() {
-      console.log("clicked")
       $('#picture_field').trigger('click')
     })
 
     $('body').on('click', '#new_picture_cancel', function() {
       $('#create_picture_cancel').trigger('click')
+    })
+
+    $('body').on('click', '#new_picture_submit', function() {
+      $('#create_picture_submit').trigger('click')
+    })
+
+    $('#new_picture').on('change', function(){
+      console.log("changed!")
     })
   }
 
