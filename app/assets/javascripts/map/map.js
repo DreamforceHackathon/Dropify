@@ -65,7 +65,6 @@ Dropify.Map.prototype = {
   		var yolo = new Dropify.MessageViewer(message);
   		yolo.showMessage();
   	})
-
 	},
 
 	getLocation: function() {
