@@ -16,6 +16,12 @@ class MessagesController < ApplicationController
         mess_hash[:picture] = mess.pictures[0]
       end
 
+      if mess.advert == true
+        mess_hash[:advert] = mess.advert
+        mess_hash[:url] = mess.url
+        mess_hash[:title] = mess.title
+      end
+
       messages_array << mess_hash
 
     end
