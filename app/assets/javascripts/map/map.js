@@ -142,6 +142,8 @@ Dropify.Map.prototype = {
 		}
 	},
 	handleMapClick: function(evt) {
-		console.log(evt.latLng);
+		if(this.adForm) {
+			this.adForm.show(evt.latLng.k, evt.latLng.B);
+		}
 	}
 };

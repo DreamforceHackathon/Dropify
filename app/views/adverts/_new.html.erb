@@ -1,9 +1,11 @@
-<%= form_for message do |f| %>
-  <%= f.text_field :title, :id => 'create_advert_title' %>
+<%= form_for message, html: { id: "new_advert" } do |f| %>
+  <%= f.hidden_field :latitude, id: "latitude" %>
+  <%= f.hidden_field :longitude, id: "longitude" %>
+  <%= f.text_field :title, :id => 'create_advert_title', placeholder: "Title" %>
   <br>
-  <%= f.text_field :url, :id => 'create_advert_url' %>
+  <%= f.text_field :url, :id => 'create_advert_url', placeholder: "Website URL" %>
   <br>
-  <%= f.text_field :content, :id => 'create_advert_content' %>
+  <%= f.text_field :content, :id => 'create_advert_content', placeholder: "Message" %>
   <br>
   <%= f.submit "drop advert", :id => 'create_advert_submit' %>
   <br>

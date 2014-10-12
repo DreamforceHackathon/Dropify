@@ -1,0 +1,32 @@
+#new_advert {
+  display: none;
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 50%;
+  padding:0;
+  border: 0px;
+}
+
+#new_advert input {
+  width: 100%;
+  height: 20%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+#create_advert_submit {
+  width: 100%;
+  height: 10%;
+  border: 0px;
+  margin: 0;
+  padding: 0;
+}
+
+#create_advert_cancel {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 10%;
+  border: 0px;
+}
