@@ -11,6 +11,7 @@ Dropify.MessageForm.prototype = {
   handleSubmitClick: function(evt) {
     $('#new_message').slideUp();
     $('#drop_message_button').slideDown();
+    this.$contentField.val("")
 
     evt.preventDefault();
     this.messageHandler.createMessage(this.getContentText());
