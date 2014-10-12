@@ -42,9 +42,4 @@ class MessagesController < ApplicationController
       render json: {errors: "Message does not exist"}
     end
   end
-
-  def new
-    @message = Message.new
-    render :partial => 'new_message'
-  end
 end

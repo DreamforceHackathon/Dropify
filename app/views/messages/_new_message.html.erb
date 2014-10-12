@@ -1,5 +1,7 @@
-<%= form_for @message do |f| %>
-  <%= f.text_field :content %>
+<%= form_for message do |f| %>
+  <%= f.text_field :content, :id => 'create_message_input' %>
   <br>
-  <%= f.submit %>
+  <%= f.submit "drop message", :id => 'create_message_submit' %>
+  <br>
+  <%= f.button "cancel", :id => 'create_message_cancel' %>
 <% end %>
