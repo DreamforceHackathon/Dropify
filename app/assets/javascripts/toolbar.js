@@ -19,10 +19,12 @@ Dropify.Toolbar.prototype = {
   handleDropMessageClick: function(evt) {
     evt.preventDefault();
     $('#new_message').slideDown("slow");
+    $('#new_advert').slideUp();
   },
 
   handleAdvertClick: function(evt) {
     evt.preventDefault();
     this.map.setAdvertMode();
+    $('#new_message').slideUp();
   }
 };

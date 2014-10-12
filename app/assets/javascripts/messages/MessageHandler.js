@@ -25,6 +25,11 @@ Dropify.MessageHandler.prototype = {
     }.bind(this));
   },
 
+  createAdvert: function(title, url, content, latitude, longitude) {
+    var message = new Dropify.Message({title: title, url: url, content: content, latitude: latitude, longitude: longitude});
+    Dropify.API.createMessage(message).then(this.handleCreateMessageResponse.bind(this));
+  },
+
   handleCreateMessageResponse: function(serverData) {
     this.createMessages([serverData]);
     this.map.renderMarker(this.messages[this.messages.length - 1]);

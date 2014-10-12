@@ -70,11 +70,9 @@ Dropify.Map.prototype = {
 			map: this.map
 		});
 		
-		var markerShit = new Dropify.MessageViewer(message)
-
   	google.maps.event.addListener(marker, 'click', function() {
-  		var yolo = new Dropify.MessageViewer(message);
-  		yolo.showMessage();
+  		var messageViewer = new Dropify.MessageViewer(message);
+  		messageViewer.showMessage();
   	})
 		this.markers.push(marker);
 	},
@@ -144,6 +142,8 @@ Dropify.Map.prototype = {
 		}
 	},
 	handleMapClick: function(evt) {
-		console.log(evt.latLng);
+		if(this.adForm) {
+			this.adForm.show(evt.latLng.k, evt.latLng.B);
+		}
 	}
 };
