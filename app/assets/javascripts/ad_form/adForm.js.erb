@@ -1,6 +1,5 @@
-Dropify.AdForm = function(titleFieldSelector, urlFieldSelector, contentFieldSelector, submitSelector, cancelSelector, messageHandler, map, paymentForm) {
+Dropify.AdForm = function(titleFieldSelector, urlFieldSelector, contentFieldSelector, submitSelector, cancelSelector, messageHandler, map) {
   this.map = map;
-  this.paymentForm = paymentForm;
   this.$titleField = $(titleFieldSelector);
   this.$urlField = $(urlFieldSelector);
   this.$contentField = $(contentFieldSelector);
@@ -43,8 +42,8 @@ Dropify.AdForm.prototype = {
     // Open Checkout with further options
     this.handler.open({
       name: 'Buy Advert',
-      description: 'Marker advert ($2.00)',
-      amount: 200
+      description: 'Marker advert ($5.00)',
+      amount: 500
     });
 
   },
