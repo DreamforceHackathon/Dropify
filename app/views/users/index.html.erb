@@ -1,0 +1,4 @@
+<%= @user.email %><br>
+<% @user.messages.each do |message| %>
+  <%= p message.content %><br>
+<% end %>
