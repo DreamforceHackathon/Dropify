@@ -7,7 +7,7 @@ $(document).ready(function() {
           type: 'GET',
           context: this
         }).done(function(jsonOfMessages) {
-          success(jsonOfMessages)
+          success(jsonOfMessages);
         })
       })
     },
@@ -19,7 +19,7 @@ $(document).ready(function() {
           type: 'POST',
           data: message
         }).done(function(jsonMessage) {
-          success(jsonMessage)
+          success(jsonMessage);
         })
       })
     }
