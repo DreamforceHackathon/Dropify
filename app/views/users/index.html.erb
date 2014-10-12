@@ -1,0 +1,14 @@
+<div class="user_profile container">
+  <h2>Your drops</h2><br>
+<% @user.messages.each do |message| %>
+  <div class="user-prof-message-display container">
+  <% if Picture.find_by_message_id(message.id) %>
+  <span class="user-prof-img"><%= image_tag("#{Picture.find_by_message_id(message.id).picture_url}") %></span>
+  <%= message.content %>
+  <%= message.created_at.strftime("%B %d, %Y")%> @ 
+  <%= message.created_at.strftime("%H:%M") %>
+  <% end %>
+  </div><br>
+<% end %>
+</div>
+<%= render partial: "static_pages/footer" %>

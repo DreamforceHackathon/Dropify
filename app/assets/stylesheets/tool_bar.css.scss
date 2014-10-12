@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // footer {
 //   text-align: center;
 //   position: fixed;
@@ -10,6 +11,23 @@
 //     padding-right: 4%;
 //   }
 // }
+=======
+footer {
+  text-align: center;
+  position: fixed;
+  height: 85px;
+  bottom: 10%;
+  background-color: #3d4c45;
+  width: 100%;
+  padding-top: 1.1em;
 
+  .footer_icon {
+    padding-right: 10%;
+    color: #f4f4f4;
+  }
+}
+>>>>>>> 8faeb2c4536374e2259e6962760c524caaaa2b94
 
-
+.footer_icon.active {
+  color: #80FFC4;
+}

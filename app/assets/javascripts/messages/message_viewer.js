@@ -1,6 +1,6 @@
 Dropify.MessageViewer = function(message){
   this.message = message
-  };
+};
 
 Dropify.MessageViewer.prototype = {
   showMessage: function() {
@@ -11,6 +11,6 @@ Dropify.MessageViewer.prototype = {
     $("#message-close").on("click", function(e){
       e.preventDefault();
       $("#messageArea").slideUp();
-      })
-    }    
+    })
   }
+}

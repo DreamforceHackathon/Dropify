@@ -25,15 +25,15 @@ ActiveRecord::Schema.define(version: 20141012070511) do
   end
 
   create_table "messages", force: true do |t|
-    t.text     "content",                  null: false
-    t.float    "latitude",                 null: false
-    t.float    "longitude",                null: false
+    t.text     "content",                    null: false
+    t.float    "latitude",                   null: false
+    t.float    "longitude",                  null: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
     t.string   "url"
-    t.string   "advert",     default: "f"
+    t.boolean  "advert",     default: false
   end
 
   create_table "pictures", force: true do |t|
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20141012070511) do
   end
 
   create_table "users", force: true do |t|
+    t.string   "username",               default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(version: 20141012070511) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "votes", force: true do |t|
     t.integer  "value"

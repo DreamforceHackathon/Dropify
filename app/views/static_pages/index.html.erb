@@ -1,57 +1,55 @@
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Dropify</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-		<script src="js/libs/modernizr.custom.js"></script>
-  </head>
-  <body>
-    <header>
-    	<div class="container">
+<header>
+    <div class="container">
         <div class="logo row">
-          <img src="images/logo.png" width="205" height="70"/>
+            <img src="images/logo.png" width="205" height="70"/>
         </div>
-      </div>
-    </header>
-    <section class="hero">
-    	<div class="container"><br><br>
-        <div class="row">
-          <% if user_signed_in? %>
-              <div>
-        <%= render :partial => 'messages/new_message', locals: {message: Message.new} %>
-        <%= render :partial => 'messages/new_picture', locals: {picture: Picture.new} %>
     </div>
-    <% end %>
-          <div class="col-lg-6 col-md-6 col-sm-6 mac-left">
-            <%= button_to 'Log in', new_user_session_path, method: :get, :class => 'btn btn-primary btn-center animated' %>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 mac-left">
-            <%= button_to 'Sign up', new_user_registration_path, method: :get, :class => 'btn btn-primary btn-center animated' %>
-          </div>
-          </div>
+</header>
+<section class="hero">
+    <div class="container"><br><br>
         <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-6 mac-left">
-            <img class="animated" src="images/dfy.png" width="553" height="529" />
-<br> 
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 mac-center"><br><br>
-            <img class="animated" src="images/pinw.png" width="551" height="527" />
-            <br> 
+            <% if user_signed_in? %>
+                <div>
+                <%= render :partial => 'messages/new_message', locals: {message: Message.new} %>
+                <%= render :partial => 'messages/new_picture', locals: {picture: Picture.new} %>
+                        </div>
+                    <% end %>
+                        <div class="col-lg-6 col-md-6 col-sm-6 mac-left">
+                            <%= button_to 'Log in', new_user_session_path, method: :get, :class => 'btn btn-primary btn-center animated' %>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 mac-left">
+                            <%= button_to 'Sign up', new_user_registration_path, method: :get, :class => 'btn btn-primary btn-center animated' %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 mac-left">
+                            <img class="animated" src="images/dfy.png" width="553" height="529" />
+                            <br> 
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 mac-center"><br><br>
+                            <img class="animated" src="images/pinw.png" width="551" height="527" />
+                            <br> 
 
-          </div>
-        </div>
-      </div>
-    </section>
-    <% if user_signed_in? %> 
-    <footer>        <span class="footer_icon" id="map_button"><i class="fa fa-globe fa-4x"></i></span>
-        <span class="footer_icon" id="footer_photo"><i class="fa fa-camera fa-4x"></i></span>
-        <span class="footer_icon" id="drop_message_button"><i class="fa fa-comment fa-4x"></i></span>
-        <span class="footer_icon" id="footer_user_profile"><i class="fa fa-user fa-4x"></i></span>
-        <span class="footer_icon" id="drop_advert_button"><i class="fa fa-dollar fa-4x"></i></span></footer>
-    <% end %>
-  </body>
-</html>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div>
+                <%= render :partial => 'messages/new_message', locals: {message: Message.new} %>
+                <%= render :partial => 'messages/new_picture', locals: {picture: Picture.new} %>
+            </div>
+            <div>
+                <%= render :partial => 'adverts/new', locals: {message: Message.new} %>
+            </div>
+            <div id="messageArea" style="display:none"></div>
+            <div id="map-canvas">
+            </div>
+            <%= render partial: 'footer' %>
+
+            <% if user_signed_in? %> 
+                <footer>        <span class="footer_icon" id="map_button"><i class="fa fa-globe fa-4x"></i></span>
+                <span class="footer_icon" id="footer_photo"><i class="fa fa-camera fa-4x"></i></span>
+                <span class="footer_icon" id="drop_message_button"><i class="fa fa-comment fa-4x"></i></span>
+                <span class="footer_icon" id="footer_user_profile"><i class="fa fa-user fa-4x"></i></span>
+                <span class="footer_icon" id="drop_advert_button"><i class="fa fa-dollar fa-4x"></i></span></footer>
+        <% end %>

@@ -1,17 +1,48 @@
 class MessagesController < ApplicationController
   def index
-    # all_messages = Message.all
-    render json: Message.all
+    all_messages = Message.all
+    messages_array = []
+
+    all_messages.each do |mess|
+
+      mess_hash = {
+        content: mess.content,
+        latitude: mess.latitude,
+        longitude: mess.longitude,
+        user: mess.user
+      }
+
+      if mess.pictures[0]
+        mess_hash[:picture] = mess.pictures[0]
+      end
+
+      if mess.advert == true
+        mess_hash[:advert] = mess.advert
+        mess_hash[:url] = mess.url
+        mess_hash[:title] = mess.title
+      end
+
+      messages_array << mess_hash
+
+    end
+    render json: messages_array
   end
 
   def create
-    new_message = Message.new(title: params[:title], url: params[:url], content: params[:content], latitude: params[:latitude], longitude: params[:longitude])
+    new_message = current_user.messages.new(title: params[:message][:title], url: params[:message][:url], content: params[:message][:content], latitude: params[:message][:latitude], longitude: params[:message][:longitude])
+  
+    if params[:message][:advert]
 
-    if new_message.save
-      session[:message_id] = new_message.id
-      render json: new_message
+      new_message = current_user.messages.new(title: params[:message][:title], url: params[:message][:url], content: params[:message][:content], latitude: params[:message][:latitude], longitude: params[:message][:longitude], advert: params[:message][:advert])
+        new_message.save
+        session[:message_id] = new_message.id
+        render json: new_message
     else
-      render json: {errors: new_message.errors}
+      new_message = current_user.messages.new(title: params[:message][:title], url: params[:message][:url], content: params[:message][:content], latitude: params[:message][:latitude], longitude: params[:message][:longitude])
+      
+        new_message.save
+        session[:message_id] = new_message.id
+        render json: new_message
     end
   end
 

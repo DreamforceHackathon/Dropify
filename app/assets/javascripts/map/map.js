@@ -108,16 +108,12 @@ Dropify.Map.prototype = {
 	},
 	unlockMap: function() {
 		this.map.setOptions({
-			disableDefaultUI: false,
-			panControl: true,
-			zoomControl: true,
-			scaleControl: true,
 			scrollwheel: true,
 			disableDoubleClickZoom: false,
-			mapTypeControl: true,
 			draggable:true
 		});
 		clearInterval(this.geolocationTimer);
+		this.clickListener = null;
 		this.addAdvertClickListener();
 	},
 	lockMap: function() {
@@ -132,9 +128,8 @@ Dropify.Map.prototype = {
 			mapTypeControl: false,
 			draggable:false
 		});
-		this.setupGeolocation();
+		this.setupGeolocation(5000);
 		google.maps.event.removeListener(this.clickListener);
-		this.clickListener = null;
 	},
 	addAdvertClickListener: function() {
 		if(!this.clickListener) {
