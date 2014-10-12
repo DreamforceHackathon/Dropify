@@ -24,12 +24,19 @@ class MessagesController < ApplicationController
 
   def create
     new_message = current_user.messages.new(title: params[:message][:title], url: params[:message][:url], content: params[:message][:content], latitude: params[:message][:latitude], longitude: params[:message][:longitude])
+  
+    if params[:message][:advert]
 
-    if new_message.save
-      session[:message_id] = new_message.id
-      render json: new_message
+      new_message = current_user.messages.new(title: params[:message][:title], url: params[:message][:url], content: params[:message][:content], latitude: params[:message][:latitude], longitude: params[:message][:longitude], advert: params[:message][:advert])
+        new_message.save
+        session[:message_id] = new_message.id
+        render json: new_message
     else
-      render json: {errors: new_message.errors}
+      new_message = current_user.messages.new(title: params[:message][:title], url: params[:message][:url], content: params[:message][:content], latitude: params[:message][:latitude], longitude: params[:message][:longitude])
+      
+        new_message.save
+        session[:message_id] = new_message.id
+        render json: new_message
     end
   end
 
