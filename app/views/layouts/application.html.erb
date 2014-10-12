@@ -16,18 +16,25 @@
   <%= yield %>
 
   <script id="messageTpl" type="text/template">
-  <div class="messageTemplate">
-  <h1>content: {{content}} </h1>
-  </div>
-  <%= button_to "Close", "", :id => "message-close" %>
+    <div class="messageTemplate">
+      {{#picturePath}}
+        <div class ="message-image">
+          <img src={{picturePath}}>
+        </div>
+      {{/picturePath}}
+        <hr>
+        <p><span class="username">Posted by:  {{user.username}}</span></p>
+        <p><span class="message-content">{{content}}</span></p><br>
+
+      <footer>
+        <%= button_to "Close DIS SHIT", "", :id => "message-close", :class => 'btn btn-danger' %>
+      </footer>
+    </div>
   </script>
 
   <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
 
 </body>
 </html>
-
-
-
 
 

@@ -1,7 +1,25 @@
 class MessagesController < ApplicationController
   def index
     # all_messages = Message.all
-    render json: Message.all
+    all_messages = Message.all
+    messages_array = []
+
+    all_messages.each do |mess|
+
+      mess_hash = {
+        content: mess.content,
+        latitude: mess.latitude,
+        longitude: mess.longitude
+      }
+
+      if mess.pictures[0]
+        mess_hash[:picture] = mess.pictures[0]
+      end
+      
+      messages_array << mess_hash
+
+    end
+    render json: messages_array
   end
 
   def create
