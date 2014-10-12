@@ -9,13 +9,14 @@ class MessagesController < ApplicationController
       mess_hash = {
         content: mess.content,
         latitude: mess.latitude,
-        longitude: mess.longitude
+        longitude: mess.longitude,
+        user: mess.user
       }
 
       if mess.pictures[0]
         mess_hash[:picture] = mess.pictures[0]
       end
-      
+
       messages_array << mess_hash
 
     end
@@ -23,7 +24,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    new_message = Message.new(title: params[:title], url: params[:url], content: params[:content], latitude: params[:latitude], longitude: params[:longitude])
+    new_message = current_user.messages.new(title: params[:title], url: params[:url], content: params[:content], latitude: params[:latitude], longitude: params[:longitude])
 
     if new_message.save
       session[:message_id] = new_message.id
