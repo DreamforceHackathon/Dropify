@@ -17,5 +17,5 @@ Dropify.Message = function(args) {
   }
 
   this.user = args.user
-  console.log(args)
+  // console.log(args)
 }
