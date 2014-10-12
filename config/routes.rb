@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   # Routes for Stripe. Hitting Charges Controller
   resources :charges
+
+  get '/user', :to => 'users#index'
 end
