@@ -14,6 +14,9 @@
   <%= render :partial => 'messages/new_message', locals: {message: Message.new} %>
   <%= render :partial => 'messages/new_picture', locals: {picture: Picture.new} %>
 </div>
+<div>
+  <%= render :partial => 'adverts/new', locals: {message: Message.new} %>
+</div>
 <div id="messageArea" style="display:none"></div>
 <div id="map-canvas">
 </div>
