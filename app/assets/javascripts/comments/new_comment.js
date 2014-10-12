@@ -25,10 +25,11 @@ $(document).ready(function() {
           method: 'POST',
           data: {content: commentContent, message_id: messageId}
         })
-        .done(function(){
+        .done(function(data){
           $('#comment_input').slideUp()
           $('#comment_cancel').slideUp()
           $('.active_comment_button').removeClass('active_comment_button')
+          $('.comment_info:last').after(data)
         })
         .fail(function(){
           console.log("fail")

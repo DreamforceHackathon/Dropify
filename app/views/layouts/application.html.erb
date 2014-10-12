@@ -38,10 +38,12 @@
 
       <div class="message_comments">
         {{#comments}}
-          <span class="comment_content">{{comment.content}} |</span>
-          <span class="comment_username">{{username}} |</span>
-          <span class="comment_vote_count">{{comment_vote_count}}</span>
-          <br>
+          <div class="comment_info">
+            <span class="comment_content">{{comment.content}} |</span>
+            <span class="comment_username">{{username}} |</span>
+            <span class="comment_vote_count">{{comment_vote_count}}</span>
+            <br>
+          </div>
         {{/comments}}
       </div>
 
