@@ -1,16 +1,4 @@
 <div class="ad_form_container">
-  <%= form_tag charges_path, html: {id: "stripe_form"} do %>
-    <%= hidden_field_tag "latitude", id: "latitude" %>
-    <%= hidden_field_tag "longitude", id: "longitude" %>
-    <%= hidden_field_tag "content" %>
-    <%= hidden_field_tag "url" %>
-    <%= hidden_field_tag "title" %>
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="200"></script>
-  <% end %>
-
   <%= form_for message, html: { id: "new_advert" } do |f| %>
     <%= f.hidden_field :latitude, id: "latitude" %>
     <%= f.hidden_field :longitude, id: "longitude" %>

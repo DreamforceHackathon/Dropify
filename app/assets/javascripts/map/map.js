@@ -108,13 +108,8 @@ Dropify.Map.prototype = {
 	},
 	unlockMap: function() {
 		this.map.setOptions({
-			disableDefaultUI: false,
-			panControl: true,
-			zoomControl: true,
-			scaleControl: true,
 			scrollwheel: true,
 			disableDoubleClickZoom: false,
-			mapTypeControl: true,
 			draggable:true
 		});
 		clearInterval(this.geolocationTimer);
