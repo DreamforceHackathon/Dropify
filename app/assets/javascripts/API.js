@@ -17,7 +17,7 @@ $(document).ready(function() {
         $.ajax({
           url: '/messages',
           type: 'POST',
-          data: message
+          data: {message: message}
         }).done(function(jsonMessage) {
           success(jsonMessage);
         })
