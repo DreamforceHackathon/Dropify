@@ -1,3 +1,14 @@
+<div id="new_pic_buttons">
+  <div id="new_picture_div">
+    <h3>Choose Photo</h3>
+  </div>
+
+  <div id="new_picture_cancel">
+    <h3>Cancel</h3>
+  </div>
+</div>
+
+
 <%= form_for picture, html: { multipart: true } do |f| %>
   <%= f.file_field :picture, id: "picture_field" %>
   <%= f.submit "Drop Picture", :id => 'create_picture_submit' %>

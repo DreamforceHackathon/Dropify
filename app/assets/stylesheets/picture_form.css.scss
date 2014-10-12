@@ -2,11 +2,11 @@
   width: 100%;
   font-size: 2.2em;
 
+}
   #picture_field {
-    margin: 2% auto;
-    width: 30%;
+    margin: auto;
     height: 2em;
-    padding: 2%;
+    float: right;
   }
 
   #create_picture_submit {
@@ -28,4 +28,27 @@
     background-color: #f7584c;
     float: left;
   }
+
+#new_picture_div {
+  background: rgba(0, 0, 0, 0.2);
+  width: 50%;
+  color: black;
+  text-align: center;
+  float: left;
+}
+
+#new_picture_cancel {
+  background: rgba(0, 0, 0, 0.2);
+  width: 50%;
+  color: black;
+  text-align: center;
+  float:right;
+}
+
+#new_pic_buttons {
+  display: none;
+  width: 100%;
+  bottom: 50px;
+  position: absolute;
+  z-index: 500;
 }
