@@ -1,6 +1,6 @@
 Dropify.Map = function(mapSelector) {
 	var mapOptions = {
-		center: { lat: 37.7806647, lng: -122.4066077},
+		center: { lat: 37, lng: -122},
 		zoom: 18,
 		disableDefaultUI: true,
 		panControl: false,
