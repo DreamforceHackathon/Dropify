@@ -1,0 +1,11 @@
+<%= form_for message do |f| %>
+  <%= f.text_field :title, :id => 'create_advert_title' %>
+  <br>
+  <%= f.text_field :url, :id => 'create_advert_url' %>
+  <br>
+  <%= f.text_field :content, :id => 'create_advert_content' %>
+  <br>
+  <%= f.submit "drop advert", :id => 'create_advert_submit' %>
+  <br>
+  <%= f.button "cancel", :id => 'create_advert_cancel' %>
+<% end %>
