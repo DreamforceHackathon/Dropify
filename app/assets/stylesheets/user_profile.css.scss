@@ -14,3 +14,16 @@
   padding: 2%;
 }
 
+.back-to-map {
+  text-align: center;
+  position: fixed;
+  height: 85px;
+  bottom: 10%;
+  background-color: #3d4c45;
+  width: 100%;
+  padding-top: 1.1em;
+  a {
+  color: white;
+  }
+}
+

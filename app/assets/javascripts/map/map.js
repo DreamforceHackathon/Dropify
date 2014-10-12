@@ -29,7 +29,7 @@ Dropify.Map = function(mapSelector) {
 Dropify.Map.prototype = {
 	init: function(mapSelector, mapOptions) {
 		this.map = new google.maps.Map($(mapSelector)[0],mapOptions);
-		this.setupGeolocation(5000);
+		this.setupGeolocation(30000);
 		this.blockTouchEvents();
 	},
 	blockTouchEvents: function() {
@@ -128,7 +128,7 @@ Dropify.Map.prototype = {
 			mapTypeControl: false,
 			draggable:false
 		});
-		this.setupGeolocation(5000);
+		this.setupGeolocation(30000);
 		google.maps.event.removeListener(this.clickListener);
 	},
 	addAdvertClickListener: function() {
