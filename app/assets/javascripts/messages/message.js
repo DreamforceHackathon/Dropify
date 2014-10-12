@@ -7,5 +7,15 @@ Dropify.Message = function(args) {
   if (args.picture != undefined) {
     this.picturePath = args.picture.picture.url
   }
+
+  if (args.comments != undefined) {
+    this.comments = args.comments
+  }
+
+  if (args.vote_count != undefined) {
+    this.voteCount = args.vote_count
+  }
+
   this.user = args.user
+  console.log(args)
 }

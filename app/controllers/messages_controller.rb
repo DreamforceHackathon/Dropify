@@ -17,8 +17,15 @@ class MessagesController < ApplicationController
         mess_hash[:picture] = mess.pictures[0]
       end
 
-      messages_array << mess_hash
+      if mess.comments.flatten != nil
+        mess_hash[:comments] = mess.comments.map {|comment| {comment: comment, username: comment.user.username, comment_vote_count: comment.votes.sum(:value)} }
+      end
 
+      if mess.votes.flatten != nil
+        mess_hash[:vote_count] = mess.votes.sum(:value)
+      end
+
+      messages_array << mess_hash
     end
     render json: messages_array
   end

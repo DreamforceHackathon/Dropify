@@ -24,7 +24,15 @@
       {{/picturePath}}
         <hr>
         <p><span class="username">Posted by:  {{user.username}}</span></p>
+        <p><span class="vote_count">{{voteCount}}</span></p>
         <p><span class="message-content">{{content}}</span></p><br>
+      <div class="message_comments">
+        {{#comments}}
+          <span class="comment_content">{{comment.content}}</span>
+          <span class="comment_username">{{username}}</span>
+          <span class="comment_vote_count">{{comment_vote_count}}</span>
+        {{/comments}}
+      </div>
 
       <footer>
         <%= button_to "Close DIS SHIT", "", :id => "message-close", :class => 'btn btn-danger' %>
