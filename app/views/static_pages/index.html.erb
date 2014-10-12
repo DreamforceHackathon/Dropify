@@ -1,23 +1,29 @@
 <% if user_signed_in? %>
-<div class='row'>
-  <div class='col-xs-1'>
-    <h2>Dropify</h2>
+  <div class='row'>
+    <div class='col-xs-1'>
+      <h2>Dropify</h2>
+    </div>
+    <div class='col-sm-1 col-sm-offset-10'>
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+    </div>
   </div>
-  <div class='col-sm-1 col-sm-offset-10'>
-    <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+
+  <div>
+    <%= button_to "new message", new_message_path, id: 'drop_message_button', :method => :get %>
+    <%= render :partial => 'messages/new_message', locals: {message: Message.new} %>
   </div>
-</div>
-<div id="map-canvas">
-</div>
+
+  <div id="map-canvas">
+  </div>
 <% else %>
-<div class="container">
-  <div class="row center-btn">
-    <div class="col-sm-4">
-    <%= button_to 'Sign up', new_user_registration_path, :class => 'btn btn-primary btn-spacing' %>
+  <div class="container">
+    <div class="row center-btn">
+      <div class="col-sm-4">
+      <%= button_to 'Sign up', new_user_registration_path, :class => 'btn btn-primary btn-spacing' %>
+      </div>
+      <div class="col-sm-4">
+        <%= button_to 'Log in', new_user_session_path, :class => 'btn btn-primary btn-spacing' %>
+      </div>
     </div>
-    <div class="col-sm-4">
-      <%= button_to 'Log in', new_user_session_path, :class => 'btn btn-primary btn-spacing' %>
-    </div>
-    <% end %>
   </div>
-</div>
+<% end %>
