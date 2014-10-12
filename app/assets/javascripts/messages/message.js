@@ -17,6 +17,10 @@ Dropify.Message = function(args) {
     this.voteCount = args.vote_count
   }
 
+  if (args.advert != undefined) {
+    this.advert = args.advert
+  };
+
   this.user = args.user
   console.log(args)
 }

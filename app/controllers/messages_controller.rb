@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
   def index
-    # all_messages = Message.all
     all_messages = Message.all
     messages_array = []
 
@@ -22,6 +21,12 @@ class MessagesController < ApplicationController
         mess_hash[:comments] = mess.comments.map {|comment| {comment: comment, username: comment.user.username, comment_vote_count: comment.votes.sum(:value)} }
       end
 
+      if mess.advert == true
+        mess_hash[:advert] = mess.advert
+        mess_hash[:url] = mess.url
+        mess_hash[:title] = mess.title
+      end
+
       if mess.votes.flatten != nil
         mess_hash[:vote_count] = mess.votes.sum(:value)
       end
@@ -34,11 +39,18 @@ class MessagesController < ApplicationController
   def create
     new_message = current_user.messages.new(title: params[:message][:title], url: params[:message][:url], content: params[:message][:content], latitude: params[:message][:latitude], longitude: params[:message][:longitude])
 
-    if new_message.save
-      session[:message_id] = new_message.id
-      render json: new_message
+    if params[:message][:advert]
+
+      new_message = current_user.messages.new(title: params[:message][:title], url: params[:message][:url], content: params[:message][:content], latitude: params[:message][:latitude], longitude: params[:message][:longitude], advert: params[:message][:advert])
+        new_message.save
+        session[:message_id] = new_message.id
+        render json: new_message
     else
-      render json: {errors: new_message.errors}
+      new_message = current_user.messages.new(title: params[:message][:title], url: params[:message][:url], content: params[:message][:content], latitude: params[:message][:latitude], longitude: params[:message][:longitude])
+
+        new_message.save
+        session[:message_id] = new_message.id
+        render json: new_message
     end
   end
 
