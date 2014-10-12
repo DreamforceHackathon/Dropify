@@ -6,6 +6,8 @@ class MessagesController < ApplicationController
     all_messages.each do |mess|
 
       mess_hash = {
+        title: mess.title,
+        url: mess.url,
         content: mess.content,
         latitude: mess.latitude,
         longitude: mess.longitude,
@@ -16,12 +18,6 @@ class MessagesController < ApplicationController
         mess_hash[:picture] = mess.pictures[0]
       end
 
-      if mess.advert == true
-        mess_hash[:advert] = mess.advert
-        mess_hash[:url] = mess.url
-        mess_hash[:title] = mess.title
-      end
-
       messages_array << mess_hash
 
     end
@@ -30,19 +26,19 @@ class MessagesController < ApplicationController
 
   def create
     new_message = current_user.messages.new(title: params[:message][:title], url: params[:message][:url], content: params[:message][:content], latitude: params[:message][:latitude], longitude: params[:message][:longitude])
-  
+
     if params[:message][:advert]
 
       new_message = current_user.messages.new(title: params[:message][:title], url: params[:message][:url], content: params[:message][:content], latitude: params[:message][:latitude], longitude: params[:message][:longitude], advert: params[:message][:advert])
-        new_message.save
-        session[:message_id] = new_message.id
-        render json: new_message
+      new_message.save
+      session[:message_id] = new_message.id
+      render json: new_message
     else
       new_message = current_user.messages.new(title: params[:message][:title], url: params[:message][:url], content: params[:message][:content], latitude: params[:message][:latitude], longitude: params[:message][:longitude])
       
-        new_message.save
-        session[:message_id] = new_message.id
-        render json: new_message
+      new_message.save
+      session[:message_id] = new_message.id
+      render json: new_message
     end
   end
 
@@ -61,7 +57,7 @@ class MessagesController < ApplicationController
     if message.update_attributes(params[:message])
       render json: message
     else
-    #can render different messages
+      #can render different messages
       render json: {errors: message.errors}
     end
   end
