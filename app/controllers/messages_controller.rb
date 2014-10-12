@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
   def index
-    # all_messages = Message.all
     all_messages = Message.all
     messages_array = []
 
