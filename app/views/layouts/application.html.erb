@@ -18,6 +18,7 @@
 
   <script id="messageTpl" type="text/template">
     <div class="messageTemplate">
+      <h1><a href="{{url}}">{{title}}</a></h1>
       {{#picturePath}}
         <div class ="message-image">
           <img src={{picturePath}}>
@@ -34,9 +35,9 @@
         <p><span class="username">Posted by:  {{user.username}}</span></p>
         <p><span class="message-content">{{content}}</span></p><br>
 
-      <footer>
-        <%= button_to "Close DIS SHIT", "", :id => "message-close", :class => 'btn btn-danger' %>
-      </footer>
+      <div id="message_footer">
+        <%= button_to "Close", "", :id => "message-close", :class => 'btn btn-danger' %>
+      </div>
     </div>
   </script>
 
