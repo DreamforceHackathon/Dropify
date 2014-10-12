@@ -1,37 +1,35 @@
 <% if user_signed_in? %>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="header col-xs-9">
-      <h2>Dropify</h2>
-    </div>
-      <ul class="nav navbar-nav">
-        <li>
-          <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-        </li>
-      </ul>
+  <div class="header col-xs-9">
+    <h2>Dropify</h2>
+  </div>
+  <ul class="nav navbar-nav">
+    <li>
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+    </li>
+  </ul>
 </nav>
-
-  <div>
-    <%= render :partial => 'messages/new_message', locals: {message: Message.new} %>
-  </div>
-  <div id="messageArea" style="display:none"></div>
-  <div id="map-canvas">
-  </div>
-
+<div>
+  <%= render :partial => 'messages/new_message', locals: {message: Message.new} %>
+</div>
+<div id="messageArea" style="display:none"></div>
+<div id="map-canvas">
+</div>
 <footer id="toolbar">
   <span class="footer_icon" id="footer_map"><i class="fa fa-globe fa-4x"></i></span>
   <span class="footer_icon" id="footer_photo"><i class="fa fa-camera fa-4x"></i></span>
   <span class="footer_icon" id="drop_message_button"><i class="fa fa-comment fa-4x"></i></span>
   <span class="footer_icon" id="footer_user_profile"><i class="fa fa-user fa-4x"></i></span>
-  <span class="footer_icon" id="footer_advert"><i class="fa fa-dollar fa-4x"></i></span>
+  <span class="footer_icon" id="drop_advert_button"><i class="fa fa-dollar fa-4x"></i></span>
 </footer>
-  <% else %>
-  <div class="container">
-    <div class="row center-btn">
-      <div class="col-sm-4">
-        <%= button_to 'Sign up', new_user_registration_path, method: :get, :class => 'btn btn-primary btn-spacing' %>
-      </div>
-      <div class="col-sm-4">
-        <%= button_to 'Log in', new_user_session_path, method: :get, :class => 'btn btn-primary btn-spacing' %>
-      </div>
+<% else %>
+<div class="container">
+  <div class="row center-btn">
+    <div class="col-sm-4">
+      <%= button_to 'Sign up', new_user_registration_path, method: :get, :class => 'btn btn-primary btn-spacing' %>
     </div>
-  <% end %>
+    <div class="col-sm-4">
+      <%= button_to 'Log in', new_user_session_path, method: :get, :class => 'btn btn-primary btn-spacing' %>
+    </div>
+  </div>
+<% end %>
