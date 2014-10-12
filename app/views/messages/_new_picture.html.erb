@@ -1,4 +1,5 @@
-<%= form_for message do |f| %>
-  <%= f.file_field :picture, :id => 'create_photo' %>
-  <%= f.button "cancel", :id => 'create_photo_cancel' %>
+<%= form_for picture do |f| %>
+  <%= f.file_field :picture, :id => 'create_picture' %>
+  <%= f.submit "drop picture", :id => 'create_picture_submit' %>
+  <%= f.button "cancel", :id => 'create_picture_cancel' %>
 <% end %>
