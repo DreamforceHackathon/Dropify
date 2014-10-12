@@ -25,10 +25,9 @@ Dropify.MessageHandler.prototype = {
     }.bind(this));
   },
 
-  // createAdvert: function(title, url, content, latitude, longitude) {
-  //   var message = new Dropify.Message({title: title, url: url, content: content, latitude: latitude, longitude: longitude});
-  //   Dropify.API.createMessage(message).then(this.handleCreateMessageResponse.bind(this));
-  // },
+  createAdvert: function(title, url, content, latitude, longitude) {
+    Dropify.API.createMessage({title: title, url: url, content: content, latitude: latitude, longitude: longitude, advert: true}).then(this.handleCreateMessageResponse.bind(this));
+  },
 
   handleCreateMessageResponse: function(serverData) {
     this.createMessages([serverData]);

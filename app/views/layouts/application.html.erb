@@ -23,6 +23,13 @@
           <img src={{picturePath}}>
         </div>
       {{/picturePath}}
+      
+      {{#advert}}
+        <div class ="message-image">
+          <a href="{{url}}">{{url}}</a>
+        </div>
+      {{/advert}}
+
         <hr>
         <p><span class="username">Posted by:  {{user.username}}</span></p>
         <p><span class="message-content">{{content}}</span></p><br>
