@@ -1,4 +1,9 @@
-<%= @user.email %><br>
+<div class="user_profile container">
+  <h2>Your drops</h2><br>
 <% @user.messages.each do |message| %>
-  <%= p message.content %><br>
+  <div class="user-prof-message-display container">
+  <%= message.content %>
+  </div><br>
 <% end %>
+</div>
+<%= render partial: "static_pages/footer" %>
