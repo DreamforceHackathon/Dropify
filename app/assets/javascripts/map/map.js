@@ -53,12 +53,20 @@ Dropify.Map.prototype = {
 			this.renderMarker(markers[i]);
 		}
 	},
-	renderMarker: function(marker) {
-		new google.maps.Marker({
-			position: new google.maps.LatLng(marker.latitude, marker.longitude),
+	renderMarker: function(message) {
+		var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(message.latitude, message.longitude),
 			map: this.map
 		});
+		
+		var markerShit = new Dropify.MessageViewer(message)
+
+  	google.maps.event.addListener(marker, 'click', function() {
+  		var yolo = new Dropify.MessageViewer(message);
+  		yolo.showMessage();
+  	})
 	},
+
 	getLocation: function() {
 		return new Promise(function(success, error) {
 			if(navigator.geolocation) {
