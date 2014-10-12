@@ -65,9 +65,11 @@ Dropify.Map.prototype = {
 		}
 	},
 	renderMarker: function(message) {
+		var iconBase = 'https://dropify.herokuapp.com/assets/';
 		var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(message.latitude, message.longitude),
-			map: this.map
+			map: this.map,
+			icon: iconBase + 'pin.png'
 		});
 
   	google.maps.event.addListener(marker, 'click', function() {
