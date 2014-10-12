@@ -1,9 +1,7 @@
 Dropify.MessageHandler = function(map) {
   this.map = map;
-  new_message = {content: "Test: Creation", latitude: 37, longitude: 122}
-  this.messages = []
-  this.getMessages()
-  this.createSingleMessage(new_message)
+  this.messages = [];
+  this.getMessages();
 }
 
 Dropify.MessageHandler.prototype = {
@@ -17,15 +15,19 @@ Dropify.MessageHandler.prototype = {
     Dropify.API.getMessages().then(function(serverData) {
       this.createMessages(serverData)
       this.map.renderMarkers(this.messages)
-    }.bind(this))
+    }.bind(this));
   },
 
-  createSingleMessage: function(message) {
-    Dropify.API.createMessage(message).then(function(serverData) {
-      arrayData = [serverData]
-      this.createMessages(arrayData)
-      this.map.renderMarkers(this.messages[this.messages.length - 1])
-    }.bind(this))
+  createMessage: function(content) {
+    this.map.getLocation().then(function(location) {
+      var message = new Dropify.Message({content: content, latitude: location.k, longitude: location.B});
+      Dropify.API.createMessage(message).then(this.handleCreateMessageResponse.bind(this));
+    }.bind(this));
+  },
+
+  handleCreateMessageResponse: function(serverData) {
+    this.createMessages([serverData]);
+    this.map.renderMarker(this.messages[this.messages.length - 1]);
   }
 }
 

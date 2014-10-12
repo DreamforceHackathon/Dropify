@@ -1,6 +1,6 @@
 Dropify.Map = function(mapSelector) {
 	var mapOptions = {
-		center: { lat: 37.7806647, lng: -122.4066077},
+		center: { lat: 37, lng: -122},
 		zoom: 18,
 		disableDefaultUI: true,
 		panControl: false,
@@ -36,13 +36,13 @@ Dropify.Map.prototype = {
 		setInterval(this.centerOnLocation.bind(this), interval);
 	},
 	centerOnLocation: function() {
-		this.getLocation().then(function(pos) { this.map.setCenter(pos); }.bind(this));
+		this.getLocation().then(function(pos) { alert("found location"); this.map.setCenter(pos); }.bind(this));
 	},
 	handleNoGeolocation: function(errorFlag) {
 		if (errorFlag) {
-			var content = 'Error: The Geolocation service failed.';
+			alert('Error: The Geolocation service failed.');
 		} else {
-			var content = 'Error: Your browser doesn\'t support geolocation.';
+			alert('Error: Your browser doesn\'t support geolocation.');
 		}
 	},
 	renderMarkers: function(markers) {
