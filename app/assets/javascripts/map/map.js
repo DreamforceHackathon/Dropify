@@ -120,6 +120,7 @@ Dropify.Map.prototype = {
 			draggable:true
 		});
 		clearInterval(this.geolocationTimer);
+		this.addAdvertClickListener();
 	},
 	lockMap: function() {
 		this.map.setOptions({
@@ -134,5 +135,15 @@ Dropify.Map.prototype = {
 			draggable:false
 		});
 		this.setupGeolocation();
+		google.maps.event.removeListener(this.clickListener);
+		this.clickListener = null;
+	},
+	addAdvertClickListener: function() {
+		if(!this.clickListener) {
+			this.clickListener = google.maps.event.addListener(this.map, 'click', this.handleMapClick.bind(this));
+		}
+	},
+	handleMapClick: function(evt) {
+		console.log(evt.latLng);
 	}
 };
