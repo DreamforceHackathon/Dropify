@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, cod
     font-size: 100%;
     line-height: 1;
     font-family: inherit;
-    background-color: #FAFAFA transparent;
+    background-color: /v#FAFAFA transparent;
 }
 table {
     border-collapse: collapse;
@@ -97,7 +97,7 @@ textarea {
     vertical-align: top;
 }
 body {
-    background: #fafafa url("../imgs/content_inner_bg.png");
+    background: #fff transparent url("../imgs/content_inner_bg.png");
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 13px;
@@ -1598,8 +1598,15 @@ a.menu:after, .dropdown-toggle:after {
     line-height: 27px;
 }
 footer {
+   text-align: center;
+   position: fixed;
+   height: 100px;
+   
+   background-color: #3d4c45;
+      width: 100%;
+         padding-top: 1.1em;
+
     margin-top: 17px;
-    padding-top: 17px;
     border-top: 1px solid #eee;
 }
 .page-header {
@@ -1837,7 +1844,8 @@ button {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  color: #ffffff;
+  margin-left: 20vw;
+    color: #ffffff;
   background-color: #464962;
 }
 .btn-success {
