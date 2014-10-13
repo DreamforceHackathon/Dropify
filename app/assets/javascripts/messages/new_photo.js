@@ -19,7 +19,7 @@ $(document).ready(function() {
     })
 
     $('#new_picture').on('change', function(){
-      console.log("changed!")
+      $('#new_picture_div h3').html('Photo: ' + $('#picture_field').val())
     })
   }
 
