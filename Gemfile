@@ -37,3 +37,4 @@ group :test do
 end
 
 gem 'carrierwave_direct'
+gem 'remotipart', '~> 1.2'

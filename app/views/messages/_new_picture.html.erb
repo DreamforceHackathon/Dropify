@@ -1,19 +1,19 @@
 <div id="new_pic_buttons">
-  <div id="new_picture_div">
+  <div class="photo_option" id="new_picture_div">
     <h3>Choose Photo</h3>
   </div>
 
-  <div id="new_picture_submit">
-    <h3>Submit</h3>
+  <div class="photo_option" id="new_picture_submit">
+    <h3>Preview</h3>
   </div>
 
-  <div id="new_picture_cancel">
+  <div class="photo_option" id="new_picture_cancel">
     <h3>No Photo</h3>
   </div>
 </div>
 
 
-<%= form_for picture, html: { multipart: true } do |f| %>
+<%= form_for picture, html: { multipart: true }, :remote => true do |f| %>
   <%= f.file_field :picture, id: "picture_field" %>
   <%= f.submit "Drop Picture", :id => 'create_picture_submit' %>
   <%= f.button "Next", :id => 'create_picture_cancel' %>
