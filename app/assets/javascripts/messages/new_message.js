@@ -1,4 +1,4 @@
 $(document).ready(function() {
-  var bindCreateNewMessage = function() {
+  var bindCreateNewMessage = function() {}
   bindCreateNewMessage()
 })
