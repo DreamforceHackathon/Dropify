@@ -13,12 +13,12 @@ $(document).ready(function() {
       })
     })
 
-    $('body').on('click', '#new_picture_submit', function(e) {
-      e.preventDefault()
+    $('body').on('click', '#new_picture_submit', function() {
       $('#create_picture_submit').trigger('click')
     })
 
-    $('body').on('click', '#new_picture_send', function() {
+    $('body').on('click', '#new_picture_send', function(e) {
+      e.preventDefault()
       $('#photo_preview_div').slideUp()
       $('#new_pic_buttons').slideUp()
     })
