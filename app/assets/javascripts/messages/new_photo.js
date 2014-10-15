@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var bindCreateNewPhoto = function() {
-    $('body').on('touch', '#new_picture_div', function() {
+    $('body').on('click touchstart', '#new_picture_div', function() {
       $('#picture_field').trigger('click')
     })
 
@@ -13,7 +13,8 @@ $(document).ready(function() {
       })
     })
 
-    $('body').on('click', '#new_picture_submit', function() {
+    $('body').on('click', '#new_picture_submit', function(e) {
+      e.preventDefault()
       $('#create_picture_submit').trigger('click')
     })
 
