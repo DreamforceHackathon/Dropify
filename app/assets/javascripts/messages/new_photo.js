@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var bindCreateNewPhoto = function() {
-    $('body').on('click', '#new_picture_div', function() {
+    $('body').on('touch', '#new_picture_div', function() {
       $('#picture_field').trigger('click')
     })
 
