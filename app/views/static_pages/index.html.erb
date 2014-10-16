@@ -1,14 +1,12 @@
 <% if user_signed_in? %>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="header col-xs-9">
-      <h2>
-      <img src='images/black.jpg' height=45vw>
-          Dropify
-      </h2>
+  <div id='title_div'>
+    <img id='nav_bar_logo' src='images/black.jpg'>
+    <h2 id='title'>
+        Dropify
+    </h2>
+    <h2 id="log_out_link" class='navbar-right-align'><%= link_to 'Log out', destroy_user_session_path, method: :delete %></h2>
   </div>
-  <ul class="nav navbar-nav">
-    <h2 class='navbar-right-align'><%= link_to 'Log out', destroy_user_session_path, method: :delete %></h2>
-  </ul>
 </nav>
 
   <%= render :partial => 'messages/new_message', locals: {message: Message.new} %>
