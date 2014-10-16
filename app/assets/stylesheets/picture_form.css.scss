@@ -37,12 +37,13 @@
 
 #new_pic_buttons {
   display: none;
-  height:75%;
   width: 100%;
   bottom: 11%;
   position: absolute;
   z-index: 500;
   background: rgba(0, 0, 0, 0.5);
+  margin: auto;
+  transition: all 0.2s;
 }
 
 #new_pic_buttons div {

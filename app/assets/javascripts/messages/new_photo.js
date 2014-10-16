@@ -23,7 +23,9 @@ $(document).ready(function() {
     })
 
     $('#new_picture').on('change', function(){
+      $('#new_pic_buttons').css('height', '75%')
       $('#new_picture_submit').trigger('click')
+
     })
   }
 

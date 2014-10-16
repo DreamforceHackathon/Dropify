@@ -1,0 +1,34 @@
+.navbar {
+  height: 10%;
+  padding: 10px;
+}
+
+#title_div {
+  height: 100%;
+  width: 100%;
+  display: table;
+  vertical-align: middle;
+}
+
+#title {
+  margin: 0 !important;
+  padding: 0 !important;
+  float: left;
+}
+
+.navbar h2 {
+  display: table-cell;
+  margin: 0;
+  paddding: 0;
+}
+
+#nav_bar_logo {
+  float: left;
+  height: 90%;
+  display: table-cell;
+  margin-right: 10px;
+}
+
+#log_out_link {
+  float: right;
+}
