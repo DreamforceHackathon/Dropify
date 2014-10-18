@@ -1,0 +1,38 @@
+
+.landing-page {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #009990;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  text-rendering: optimizeLegibility;
+}
+
+.inner-landing {
+
+  margin-top: 9em;
+  position: relative;
+}
+
+.intro-divider {
+    width: 80%;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.inner-landing  h1 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-size: 5em;
+}
+
+.inner-landing  h3 {
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    padding-bottom:.5em;
+    font-size: 1.5em;
+}
+
